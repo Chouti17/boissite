@@ -1,0 +1,1746 @@
+var urlParams = new URLSearchParams(window.location.search);
+var myParam = urlParams.get('sfscrape');
+if(myParam === 'true'){
+  setTimeout(function () {
+    if (typeof window.dataLayer !== 'undefined') {
+      window.dataLayer.push({
+        'event': 'cookieAccept',
+        'cookieAccepted': 'yes',
+        "cookieAcceptLevel": "all"
+      });
+    }
+  }, 300);
+
+  // Define dataLayer and the gtag function.
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  var consent = {
+    'ad_storage': 'granted',
+    'analytics_storage': 'granted',
+    'personalization_storage': 'denied',
+  }
+
+  // Default ad_storage to 'denied' as a placeholder
+  // Determine actual values based on your own requirements
+  gtag('consent', 'default', consent);
+} else {
+  // Cookie blocker logic.
+  var allowCookies = ['necessary'];
+  var currentStorage = sf_cookie_getCookie('cookie_consent_preferences');
+  if (currentStorage === '' || currentStorage === null) {
+    // Block everything.
+
+    // Define dataLayer and the gtag function.
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    var consent = {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'personalization_storage': 'denied',
+    }
+
+    var head = document.querySelector('head');
+    if (head) {
+      if (head.innerHTML.indexOf("?v=nethit") !== -1 && sfAny()) {
+
+        window.sfNethit = 1;
+        consent = {
+          'ad_storage': 'granted',
+          'analytics_storage': 'granted',
+          'personalization_storage': 'denied',
+        }
+      }
+    }
+
+    // Default ad_storage to 'denied' as a placeholder
+    // Determine actual values based on your own requirements
+    gtag('consent', 'default', consent);
+
+  }
+  else {
+
+    var head = document.querySelector('head');
+    if (head) {
+      if (head.innerHTML.indexOf("?v=nethit") !== -1 && sfAny()) {
+        window.sfNethit = 1;
+      }
+    }
+
+    allowCookies = currentStorage.split('|');
+
+    // Define dataLayer and the gtag function.
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    var consent = {}
+    if (currentStorage.indexOf("all") > -1) {
+      consent['ad_storage'] = 'granted';
+      consent['personalization_storage'] = 'granted';
+      consent['analytics_storage'] = 'granted';
+    } else {
+      if (currentStorage.indexOf("marketing") > -1) {
+        consent['ad_storage'] = 'granted';
+      } else {
+        if (window.sfNethit === 1 && sfAny()) {
+          consent['ad_storage'] = 'granted';
+        } else {
+          consent['ad_storage'] = 'denied';
+        }
+      }
+      if (currentStorage.indexOf("preferences") > -1) {
+        consent['personalization_storage'] = 'granted';
+      } else {
+        consent['personalization_storage'] = 'denied';
+      }
+      if (currentStorage.indexOf("statistics") > -1) {
+        consent['analytics_storage'] = 'granted';
+      } else {
+        if (window.sfNethit === 1 && sfAny()) {
+          consent['analytics_storage'] = 'granted';
+        } else {
+          consent['analytics_storage'] = 'denied';
+        }
+      }
+    }
+
+    gtag('consent', 'default', consent);
+  }
+
+  cookieBlocker(allowCookies);
+
+  function sfAny() {
+    var urls = ['wetterhoff', 'dogsport', 'tessu', 'ekosoppi', 'esa-nethit', 'hauskakauppa', 'painatusaxa', 'nettimyynti', 'kuopus', 'elfvingsafety', 'toimistotekniikka', 'puttipaja', 'showlinkshop', 'konditoriaph7'];
+    var str = window.location.href;
+
+    for (var i = 0; i != urls.length; i++) {
+      var substring = urls[i];
+      if (str.indexOf(substring) != -1) {
+        return 0;
+      }
+    }
+    return 1;
+  }
+
+  window.sfCookieScriptLoaded = 1;
+
+  function sf_cookie_getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+
+  function cookieBlocker(allowCookies) {
+
+    window.SF_WHITELIST = [
+      window.location.host
+    ]
+    window.SF_BLACKLIST = []
+
+    if (allowCookies.includes('all')) {
+    } else {
+      if (!allowCookies.includes('statistics')) {
+        window.SF_BLACKLIST.push('static.hotjar');
+        window.SF_BLACKLIST.push('script.hotjar');
+      }
+      if (!allowCookies.includes('marketing')) {
+        window.SF_BLACKLIST.push('criteo');
+        window.SF_BLACKLIST.push('custobar');
+        window.SF_BLACKLIST.push('bing');
+        window.SF_BLACKLIST.push('youtube');
+        window.SF_BLACKLIST.push('yotpo');
+        window.SF_BLACKLIST.push('analytics.tiktok');
+        window.SF_BLACKLIST.push('hs-scripts');
+        window.SF_BLACKLIST.push('intercom');
+        window.SF_BLACKLIST.push('connect.facebook');
+        window.SF_BLACKLIST.push('lftracker');
+        window.SF_BLACKLIST.push('embed.tawk');
+        window.SF_BLACKLIST.push('recaptcha');
+      }
+      if (!allowCookies.includes('performance')) {
+        window.SF_BLACKLIST.push('msecnd.net/scripts/a');
+      }
+    }
+
+    if (window.SF_BLACKLIST.length) {
+      // Block the most common scripts completely.
+      !function (t, e) {
+        "object" == typeof exports && "undefined" != typeof module ? e(exports) : "function" == typeof define && define.amd ? define(["exports"], e) : e((t = "undefined" != typeof globalThis ? globalThis : t || self).sf_blocker = {})
+      }(this, (function (t) {
+        "use strict";
+        var e = "javascript/blocked", r = {blacklist: window.SF_BLACKLIST, whitelist: window.SF_WHITELIST},
+          n = {blacklisted: []}, i = function (t, n) {
+            return t && (!n || n !== e) && (!r.blacklist || r.blacklist.some((function (e) {
+              if (typeof t === 'string') {
+                if (t.indexOf(e) > -1) {
+                  console.log('Blocked third party script: ' + t);
+                }
+                return t.indexOf(e) > -1
+              }
+            })))
+          }, o = function (t) {
+            var e = t.getAttribute("src");
+            return r.blacklist && r.blacklist.every((function (t) {
+              if (typeof t === 'string') {
+                return !t.indexOf(e) > -1
+              }
+            })) || r.whitelist && r.whitelist.some((function (t) {
+              if (typeof t === 'string') {
+                return t.indexOf(e) > -1
+              }
+            }))
+          }, c = new MutationObserver((function (t) {
+            for (var r = 0; r < t.length; r++) for (var o = t[r].addedNodes, c = function (t) {
+              var r = o[t];
+              if (1 === r.nodeType && "SCRIPT" === r.tagName) {
+                var c = r.src, l = r.type;
+                if (i(c, l)) {
+                  n.blacklisted.push([r, r.type]), r.type = e;
+                  r.addEventListener("beforescriptexecute", (function t(n) {
+                    r.getAttribute("type") === e && n.preventDefault(), r.removeEventListener("beforescriptexecute", t)
+                  })), r.parentElement && r.parentElement.removeChild(r)
+                }
+              }
+            }, l = 0; l < o.length; l++) c(l)
+          }));
+
+        function l(t, e) {
+          var r = Object.keys(t);
+          if (Object.getOwnPropertySymbols) {
+            var n = Object.getOwnPropertySymbols(t);
+            e && (n = n.filter((function (e) {
+              return Object.getOwnPropertyDescriptor(t, e).enumerable
+            }))), r.push.apply(r, n)
+          }
+          return r
+        }
+
+        function a(t) {
+          for (var e = 1; e < arguments.length; e++) {
+            var r = null != arguments[e] ? arguments[e] : {};
+            e % 2 ? l(Object(r), !0).forEach((function (e) {
+              s(t, e, r[e])
+            })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(r)) : l(Object(r)).forEach((function (e) {
+              Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(r, e))
+            }))
+          }
+          return t
+        }
+
+        function s(t, e, r) {
+          return e in t ? Object.defineProperty(t, e, {
+            value: r,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0
+          }) : t[e] = r, t
+        }
+
+        function u(t, e) {
+          return function (t) {
+            if (Array.isArray(t)) return t
+          }(t) || function (t, e) {
+            var r = null == t ? null : "undefined" != typeof Symbol && t[Symbol.iterator] || t["@@iterator"];
+            if (null == r) return;
+            var n, i, o = [], c = !0, l = !1;
+            try {
+              for (r = r.call(t); !(c = (n = r.next()).done) && (o.push(n.value), !e || o.length !== e); c = !0) ;
+            } catch (t) {
+              l = !0, i = t
+            } finally {
+              try {
+                c || null == r.return || r.return()
+              } finally {
+                if (l) throw i
+              }
+            }
+            return o
+          }(t, e) || f(t, e) || function () {
+            throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+          }()
+        }
+
+        function p(t) {
+          return function (t) {
+            if (Array.isArray(t)) return y(t)
+          }(t) || function (t) {
+            if ("undefined" != typeof Symbol && null != t[Symbol.iterator] || null != t["@@iterator"]) return Array.from(t)
+          }(t) || f(t) || function () {
+            throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+          }()
+        }
+
+        function f(t, e) {
+          if (t) {
+            if ("string" == typeof t) return y(t, e);
+            var r = Object.prototype.toString.call(t).slice(8, -1);
+            return "Object" === r && t.constructor && (r = t.constructor.name), "Map" === r || "Set" === r ? Array.from(t) : "Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r) ? y(t, e) : void 0
+          }
+        }
+
+        function y(t, e) {
+          (null == e || e > t.length) && (e = t.length);
+          for (var r = 0, n = new Array(e); r < e; r++) n[r] = t[r];
+          return n
+        }
+
+        c.observe(document.documentElement, {childList: !0, subtree: !0});
+        var b = document.createElement, d = {
+          src: Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, "src"),
+          type: Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, "type")
+        };
+        document.createElement = function () {
+          for (var t = arguments.length, r = new Array(t), n = 0; n < t; n++) r[n] = arguments[n];
+          if ("script" !== r[0].toLowerCase()) return b.bind(document).apply(void 0, r);
+          var o = b.bind(document).apply(void 0, r);
+          try {
+            Object.defineProperties(o, {
+              src: a(a({}, d.src), {}, {
+                set: function (t) {
+                  i(t, o.type) && d.type.set.call(this, e), d.src.set.call(this, t)
+                }
+              }), type: a(a({}, d.type), {}, {
+                get: function () {
+                  var t = d.type.get.call(this);
+                  return t === e || i(this.src, t) ? null : t
+                }, set: function (t) {
+                  var r = i(o.src, o.type) ? e : t;
+                  d.type.set.call(this, r)
+                }
+              })
+            }), o.setAttribute = function (t, e) {
+              "type" === t || "src" === t ? o[t] = e : HTMLScriptElement.prototype.setAttribute.call(o, t, e)
+            }
+          } catch (t) {
+            console.warn("Yett: unable to prevent script execution for script src ", o.src, ".\n", 'A likely cause would be because you are using a third-party browser extension that monkey patches the "document.createElement" function.')
+          }
+          return o
+        };
+        var v = new RegExp("[|\\{}()[\\]^$+*?.]", "g");
+        t.unblock = function () {
+          for (var t = arguments.length, i = new Array(t), l = 0; l < t; l++) i[l] = arguments[l];
+          i.length < 1 ? (r.blacklist = [], r.whitelist = []) : (r.blacklist && (r.blacklist = r.blacklist.filter((function (t) {
+            return i.every((function (e) {
+
+              if (typeof t === 'string') {
+                if (t.indexOf(e) > -1) {
+                  console.log('Allowed third party script: ' + t);
+                }
+                return t.indexOf(e) > -1
+              }
+            }))
+          }))), r.whitelist && (r.whitelist = [].concat(p(r.whitelist), p(i.map((function (t) {
+            if ("string" == typeof t) {
+              var e = ".*" + t.replace(v, "\\$&") + ".*";
+              if (r.whitelist.every((function (t) {
+                return t.toString() !== e.toString()
+              }))) return new RegExp(e)
+            } else if (t instanceof RegExp && r.whitelist.every((function (e) {
+              return e.toString() !== t.toString()
+            }))) return t;
+            return null
+          })).filter(Boolean)))));
+          for (var a = document.querySelectorAll('script[type="'.concat(e, '"]')), s = 0; s < a.length; s++) {
+            var f = a[s];
+            o(f) && (n.blacklisted.push([f, "application/javascript"]), f.parentElement.removeChild(f))
+          }
+          var y = 0;
+          p(n.blacklisted).forEach((function (t, e) {
+            var r = u(t, 2), i = r[0], c = r[1];
+            if (o(i)) {
+              for (var l = document.createElement("script"), a = 0; a < i.attributes.length; a++) {
+                var s = i.attributes[a];
+                "src" !== s.name && "type" !== s.name && l.setAttribute(s.name, i.attributes[a].value)
+              }
+              l.setAttribute("src", i.src), l.setAttribute("type", c || "application/javascript"), document.head.appendChild(l), n.blacklisted.splice(e - y, 1), y++
+            }
+          })), r.blacklist && r.blacklist.length < 1 && c.disconnect()
+        }, Object.defineProperty(t, "__esModule", {value: !0})
+      }));
+    }
+  }
+
+  if (typeof window.cookieBarSettings !== 'undefined' && typeof sfPixel !== 'undefined') {
+    window.cookieBarSettings = sfPixel.ruleDetails.cookieData;
+  } else {
+    window.cookieBarSettings = {
+      "customiseText": "Muokkaa asetuksia",
+      "privacyModalHeaderBackground": "#f1f1f1",
+      "cookieCorner": "2",
+      "dontAllowText": "Hylkää kaikki",
+      "alwaysActive": "Aina hyväksytty",
+      "cookieTypes": [
+        {
+          "cookieList": [],
+          "necessary": 1,
+          "machine": "functional"
+        },
+        {
+          "machine": "preferences",
+          "necessary": 0,
+          "cookieList": []
+        },
+        {
+          "machine": "marketing",
+          "necessary": 0,
+          "cookieList": []
+        },
+        {
+          "machine": "statistics",
+          "cookieList": [],
+          "necessary": 0
+        }
+      ],
+      "manageCookiesHeader": "Hallitse evästeryhmiä",
+      "cookieBarText": "Valitsemalla “Hyväksy kaikki”, sallit, että tallennamme evästeitä laitteellesi erilaisia tarkoituksia varten, kuten taataksemme sivuston toimivuuden. Voit muuttaa evästeasetuksiasi milloin tahansa sivun lopusta löytyvästä linkistä.",
+      "logo": "",
+      "type": "cookieController",
+      "buttonColor": "#000000",
+      "bottomBarText": "Muokkaa evästeasetuksia",
+      "popupType": "1",
+      "buttonTextColor": "#ffffff",
+      "disagreeText": "Hylkää",
+      "privacyModalHeader": "Lisätietoja evästeistä ja yksityisyydestä",
+      "privacyModalText": "Valitsemalla “Hyväksy kaikki”, sallit, että tallennamme evästeitä laitteellesi erilaisia tarkoituksia varten, kuten taataksemme sivuston toimivuuden. Voit muuttaa evästeasetuksiasi milloin tahansa sivun lopusta löytyvästä linkistä.",
+      "allowText": "Hyväksy kaikki",
+      "agreeText": "Hyväksy"
+    }
+  }
+
+  var url = window.location.host;
+  if (window.location.href.indexOf("hovisepat") > -1) {
+    var cookieType = {
+      "machine": "rolex",
+      "cookieList": [],
+      "necessary": 0,
+      "actionCookie": "rlx-consent",
+      "name": "Rolex (Adobe Analytics ja Content Square)",
+      "description": "Voit hyväksyä tai estää myös kumppanimme käyttämät evästeet. Kyseessä on Rolex:in käyttämät evästeet. Evästeselosteet ja kumppanin käyttämät työkalut (<a target='_blank' href='https://www.rolex.com/legal-notices/cookies.html'>policy</a>) Adobe Analytics (<a target='_blank' href='https://www.adobe.com/privacy/policy.html'>policy</a>) and ContentSquare (<a target='_blank' href='https://contentsquare.com/gb-en/privacy-center/'>policy</a>).",
+    }
+    window.cookieBarSettings.cookieTypes.push(cookieType);
+  }
+
+  var sf_cc = {
+    loadPixel: function () {
+
+      function extractHostname(url) {
+        var hostname;
+        //find & remove protocol (http, ftp, etc.) and get hostname
+
+        if (url.indexOf("//") > -1) {
+          hostname = url.split('/')[2];
+        } else {
+          hostname = url.split('/')[0];
+        }
+
+        //find & remove port number
+        hostname = hostname.split(':')[0];
+        //find & remove "?"
+        hostname = hostname.split('?')[0];
+
+        return hostname;
+      }
+
+      function extractRootDomain(url) {
+        var domain = extractHostname(url),
+          splitArr = domain.split('.'),
+          arrLen = splitArr.length;
+
+        var head = document.querySelector('head');
+        if (head) {
+          if (head.innerHTML.indexOf("?v=nethit") !== -1) {
+            return domain;
+          }
+        }
+
+        //extracting the root domain here
+        //if there is a subdomain
+        if (arrLen > 2) {
+          domain = splitArr[arrLen - 2] + '.' + splitArr[arrLen - 1];
+          //check to see if it's using a Country Code Top Level Domain (ccTLD) (i.e. ".me.uk")
+          if (splitArr[arrLen - 2].length == 2 && splitArr[arrLen - 1].length == 2) {
+            //this is using a ccTLD
+            domain = splitArr[arrLen - 3] + '.' + domain;
+          }
+        }
+        return domain;
+      }
+
+      var sitename = window.location.href;
+
+      sitename = extractRootDomain(sitename);
+
+      var Base64 = {
+        _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=", encode: function (e) {
+          var t = "";
+          var n, r, i, s, o, u, a;
+          var f = 0;
+          e = Base64._utf8_encode(e);
+          while (f < e.length) {
+            n = e.charCodeAt(f++);
+            r = e.charCodeAt(f++);
+            i = e.charCodeAt(f++);
+            s = n >> 2;
+            o = (n & 3) << 4 | r >> 4;
+            u = (r & 15) << 2 | i >> 6;
+            a = i & 63;
+            if (isNaN(r)) {
+              u = a = 64
+            } else if (isNaN(i)) {
+              a = 64
+            }
+            t = t + this._keyStr.charAt(s) + this._keyStr.charAt(o) + this._keyStr.charAt(u) + this._keyStr.charAt(a)
+          }
+          return t
+        }, decode: function (e) {
+          var t = "";
+          var n, r, i;
+          var s, o, u, a;
+          var f = 0;
+          e = e.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+          while (f < e.length) {
+            s = this._keyStr.indexOf(e.charAt(f++));
+            o = this._keyStr.indexOf(e.charAt(f++));
+            u = this._keyStr.indexOf(e.charAt(f++));
+            a = this._keyStr.indexOf(e.charAt(f++));
+            n = s << 2 | o >> 4;
+            r = (o & 15) << 4 | u >> 2;
+            i = (u & 3) << 6 | a;
+            t = t + String.fromCharCode(n);
+            if (u != 64) {
+              t = t + String.fromCharCode(r)
+            }
+            if (a != 64) {
+              t = t + String.fromCharCode(i)
+            }
+          }
+          t = Base64._utf8_decode(t);
+          return t
+        }, _utf8_encode: function (e) {
+          e = e.replace(/\r\n/g, "\n");
+          var t = "";
+          for (var n = 0; n < e.length; n++) {
+            var r = e.charCodeAt(n);
+            if (r < 128) {
+              t += String.fromCharCode(r)
+            } else if (r > 127 && r < 2048) {
+              t += String.fromCharCode(r >> 6 | 192);
+              t += String.fromCharCode(r & 63 | 128)
+            } else {
+              t += String.fromCharCode(r >> 12 | 224);
+              t += String.fromCharCode(r >> 6 & 63 | 128);
+              t += String.fromCharCode(r & 63 | 128)
+            }
+          }
+          return t
+        }, _utf8_decode: function (e) {
+          var t = "";
+          var n = 0;
+          var r = c1 = c2 = 0;
+          while (n < e.length) {
+            r = e.charCodeAt(n);
+            if (r < 128) {
+              t += String.fromCharCode(r);
+              n++
+            } else if (r > 191 && r < 224) {
+              c2 = e.charCodeAt(n + 1);
+              t += String.fromCharCode((r & 31) << 6 | c2 & 63);
+              n += 2
+            } else {
+              c2 = e.charCodeAt(n + 1);
+              c3 = e.charCodeAt(n + 2);
+              t += String.fromCharCode((r & 15) << 12 | (c2 & 63) << 6 | c3 & 63);
+              n += 3
+            }
+          }
+          return t
+        }
+      }
+      sf_cc.undecodedSitename = sitename;
+      sf_cc.sitename = Base64.encode(sitename);
+
+      var data = "pid=" + sf_cc.sitename;
+      var xhr2 = new XMLHttpRequest();
+
+      xhr2.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          var response = this.responseText;
+          response = JSON.parse(response);
+
+          if (response !== '403') {
+            window.cookieBarSettings = response.cookieData;
+            sf_cc.languageDefaults();
+            sf_cc.getDeepCookies('rebuild');
+          } else if (response === '403') {
+            sf_cc.createPixel('random');
+          }
+
+          // Add custom Stockmann logic.
+          var element = document.querySelector('.js-footer-edit-cookies');
+          if (element) {
+            element.addEventListener('click', function () {
+              sf_cc.openModal();
+            });
+          } else {
+            setTimeout(function () {
+              var element = document.querySelector('.js-footer-edit-cookies');
+              if (element) {
+                element.addEventListener('click', function () {
+                  sf_cc.openModal();
+                });
+              }
+            }, 2000);
+          }
+        }
+      });
+
+      xhr2.open("POST", "https://europe-west1-ecstatic-fiber-261015.cloudfunctions.net/gP?pid=" + sf_cc.sitename);
+      xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr2.send(data);
+    },
+    createPixel: function (force) {
+      var random = 500;
+      if (force === 'force') {
+        random = 5;
+      } else {
+        function getRandomInt(min, max) {
+          min = Math.ceil(min);
+          max = Math.floor(max);
+          return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+        }
+
+        random = getRandomInt(0, 1000);
+      }
+
+      // Once out of 100 ish visitors update it.
+      if (random < 10) {
+
+        var pid = 0;
+        var head = document.querySelector('head');
+        if (head) {
+          if (head.innerHTML.indexOf("?v=nethit") !== -1) {
+            pid = 10402;
+          }
+        }
+
+        var element = document.querySelector('#sf-cookie');
+        if (element || pid) {
+          if (element) {
+            pid = element.getAttribute('uid');
+          }
+
+          var data = {
+            "website": sf_cc.sitename,
+            "full_url": window.location.origin,
+            "undecodedWebsite": sf_cc.undecodedSitename,
+            "uid": pid.toString()
+          }
+
+          data = JSON.stringify(data);
+          var xhr2 = new XMLHttpRequest();
+
+          xhr2.open("POST", "https://as6h0kopoj.execute-api.eu-north-1.amazonaws.com/default/cookie-function");
+          xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          xhr2.send(data);
+
+          xhr2.onreadystatechange = function () {
+            if (xhr2.readyState === 4 && xhr2.status === 200) {
+              var json = JSON.parse(xhr2.responseText);
+            }
+          }
+        }
+      }
+    },
+    closeBar: function () {
+      var controller = document.querySelector('#sf-cookie-bar');
+      sf_cc.sfRemoveElement(controller);
+      if (typeof sfPixel !== 'undefined') {
+        sfPixel.executeRules(sfPixel.ruleDetails.rules);
+      }
+    },
+    sfRemoveElement: function (elem) {
+      if (elem) {
+        return elem.parentNode.removeChild(elem);
+      }
+    },
+    closeModal: function () {
+      var controller = document.querySelector('#sf-cookie-modal');
+      sf_cc.sfRemoveElement(controller);
+      if (typeof sfPixel !== 'undefined') {
+        sfPixel.executeRules(sfPixel.ruleDetails.rules);
+      }
+    },
+    openModal: function () {
+      sf_cc.closeBar();
+      this.buildPrivacyModal();
+    },
+    languageDefaults: function () {
+
+      var language = 'fi';
+      if (document.querySelector('html')) {
+        var lang = document.querySelector('html').getAttribute('lang');
+        if (lang !== null) {
+          language = lang;
+          if (lang.indexOf("en") !== -1) {
+            language = 'en';
+          } else if (lang.indexOf("fi") !== -1) {
+            language = 'fi';
+          }
+        }
+      }
+
+      var host = window.location.host;
+      if (host.indexOf("en.") !== -1 && host.indexOf("den.") === -1 && host.indexOf("nen.") === -1 && host.indexOf("ven.") === -1 && host.indexOf("ten.") === -1 ||
+        host.indexOf("fr.") !== -1 || host.indexOf("cz.") !== -1 || host.indexOf("se.") !== -1 && host.indexOf("ise.") === -1 || host.indexOf("ru.") !== -1) {
+        language = 'en';
+        if (host.indexOf("cz.") !== -1) {
+          language = 'cs';
+        } else if (host.indexOf("fr.") !== -1) {
+          language = 'fr';
+        } else if (host.indexOf("ose.fi") !== -1 || host.indexOf("uru.fi") !== -1 || host.indexOf("se.fi") !== -1) {
+          language = 'fi';
+        } else if (host.indexOf("se.") !== -1) {
+          language = 'sv';
+        } else if (host.indexOf("ru.") !== -1) {
+          language = 'ru';
+        }
+      }
+
+      var defLang = language.toUpperCase();
+      window.sfCookieLang = defLang;
+
+      window.cookieBarSettings.customiseText = sf_cc.cT("Customize");
+      window.cookieBarSettings.dontAllowText = sf_cc.cT("Deny all");
+      window.cookieBarSettings.alwaysActive = sf_cc.cT("Always active");
+      window.cookieBarSettings.manageCookiesHeader = sf_cc.cT("Manage cookie groups");
+      window.cookieBarSettings.privacyModalHeader = sf_cc.cT("More information about cookies and privacy");
+      window.cookieBarSettings.privacyModalText = sf_cc.cT("By clicking “Allow All”, you agree to the storing of cookies on your device for various purposes, such as ensuring the proper functioning of the website. You can change your cookie settings from the bottom of the page at any time.");
+      window.cookieBarSettings.cookieBarText = sf_cc.cT("By clicking “Allow All”, you agree to the storing of cookies on your device for various purposes, such as ensuring the proper functioning of the website. You can change your cookie settings from the bottom of the page at any time.");
+      window.cookieBarSettings.allowText = sf_cc.cT("Allow all");
+      window.cookieBarSettings.bottomBarText = sf_cc.cT('Change cookie settings');
+      window.cookieBarSettings.agreeText = sf_cc.cT("Allow");
+      window.cookieBarSettings.disagreeText = sf_cc.cT("Deny");
+      window.cookieBarSettings.saveSettingsButton = sf_cc.cT("Save settings");
+
+      var types = window.cookieBarSettings.cookieTypes;
+      for (var i = 0; i < types.length; i++) {
+        if (types[i].machine === 'functional') {
+          window.cookieBarSettings.cookieTypes[i].name = sf_cc.cT("Strictly necessary cookies");
+          window.cookieBarSettings.cookieTypes[i].description = sf_cc.cT("These are cookies that are required for the proper operation of our website. They may include, for example, cookies that enable us to manage your user session or provide you with a service you requested.");
+        }
+        if (types[i].machine === 'preferences') {
+          window.cookieBarSettings.cookieTypes[i].name = sf_cc.cT("Preference cookies");
+          window.cookieBarSettings.cookieTypes[i].description = sf_cc.cT("These are cookies that enable us to save your preferences or otherwise tailor the website experience for you specifically.");
+        }
+        if (types[i].machine === 'statistics') {
+          window.cookieBarSettings.cookieTypes[i].name = sf_cc.cT("Statistics cookies");
+          window.cookieBarSettings.cookieTypes[i].description = sf_cc.cT("These cookies record personally non-identifiable information about your visit to our website, the pages you have visited, the links you have followed and similar statistical information. We use the information to gain a better understanding of the use of our website and improve our services.");
+        }
+        if (types[i].machine === 'marketing') {
+          window.cookieBarSettings.cookieTypes[i].name = sf_cc.cT("Marketing cookies");
+          window.cookieBarSettings.cookieTypes[i].description = sf_cc.cT("These are cookies that enable us to make the advertising displayed to you more relevant to your interests. We may also share personally non-identifiable information about your website use with third parties for similar marketing purposes.");
+        }
+      }
+
+    },
+    initBar: function () {
+      sf_cc.loadPixel();
+      var sitename = window.location.href;
+
+      function extractHostname(url) {
+        var hostname;
+        //find & remove protocol (http, ftp, etc.) and get hostname
+
+        if (url.indexOf("//") > -1) {
+          hostname = url.split('/')[2];
+        } else {
+          hostname = url.split('/')[0];
+        }
+
+        //find & remove port number
+        hostname = hostname.split(':')[0];
+        //find & remove "?"
+        hostname = hostname.split('?')[0];
+
+        return hostname;
+      }
+
+      function extractRootDomain(url) {
+        var domain = extractHostname(url),
+          splitArr = domain.split('.'),
+          arrLen = splitArr.length;
+
+        //extracting the root domain here
+        //if there is a subdomain
+        if (arrLen > 2) {
+          domain = splitArr[arrLen - 2] + '.' + splitArr[arrLen - 1];
+          //check to see if it's using a Country Code Top Level Domain (ccTLD) (i.e. ".me.uk")
+          if (splitArr[arrLen - 2].length == 2 && splitArr[arrLen - 1].length == 2) {
+            //this is using a ccTLD
+            domain = splitArr[arrLen - 3] + '.' + domain;
+          }
+        }
+        return domain;
+      }
+
+      sf_cc.languageDefaults();
+      // Pre-delete.
+      if (window.cookieBarSettings) {
+        var currentStorage = sf_cc.getCookie('cookie_consent_preferences');
+        if (currentStorage === '' || currentStorage === null) {
+          if (typeof window.cookieBarSettings.popupType !== 'undefined' && window.cookieBarSettings.popupType === '1') {
+            this.buildPrivacyModal();
+          } else {
+            this.buildCookieBar();
+          }
+        } else {
+          if (typeof sfPixel !== 'undefined') {
+            sfPixel.executeRules(sfPixel.ruleDetails.rules);
+          }
+        }
+        this.addCookieCSS();
+
+        if (window.cookieBarSettings.cookieCorner === '1' || window.cookieBarSettings.cookieCorner === '2') {
+          this.buildCookieCorner();
+        }
+      }
+    },
+    buildCookieCorner: function () {
+      setTimeout(function () {
+        var cookieBarData = cookieBarSettings;
+
+        if (cookieBarData.cookieCorner) {
+          var html = '<div id="sf-cookie-corner" style="display:none" onclick="sf_cc.openModal()">\n' +
+            '    <div class="sf-cookie-corner-wrapper">\n' +
+            ' <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><circle cx="10.5" cy="8.5" r="1.5"/><circle cx="8.5" cy="13.5" r="1.5"/><circle cx="15" cy="15" r="1"/><path d="M21.95,10.99c-1.79-0.03-3.7-1.95-2.68-4.22c-2.97,1-5.78-1.59-5.19-4.56C7.11,0.74,2,6.41,2,12c0,5.52,4.48,10,10,10 C17.89,22,22.54,16.92,21.95,10.99z M12,20c-4.41,0-8-3.59-8-8c0-3.31,2.73-8.18,8.08-8.02c0.42,2.54,2.44,4.56,4.99,4.94 c0.07,0.36,0.52,2.55,2.92,3.63C19.7,16.86,16.06,20,12,20z"/></g></g></svg>' +
+            ' </div>' +
+            '</div>';
+          if (cookieBarData.cookieCorner === "2") {
+            html = '<div id="sf-cookie-bottom-bar" style="display:none" onclick="sf_cc.openModal()">\n' +
+              '    <div class="sf-cookie-bottom-bar">\n' +
+              window.cookieBarSettings.bottomBarText +
+              '</div>';
+          }
+
+          var element = document.querySelector('body');
+          if (!element) {
+            element = document.querySelector('html');
+          }
+          element.insertAdjacentHTML('beforeend', html);
+        }
+      }, 4000);
+    },
+    allowAll: function () {
+      sf_cc.closeBar();
+      sf_cc.closeModal();
+
+      if (typeof sf_blocker !== 'undefined') {
+        sf_blocker.unblock();
+      }
+
+      window.sfCookieLess = 0;
+
+      if (typeof sfPixel !== 'undefined') {
+        var session = 'sid-' + sfPixel.generateId(16);
+        sfPixel.sfSetPixelCookie('sfpxs', session, 14);
+      }
+
+      localStorage.setItem('sf-cc', 'allow_all');
+      sf_cc.sendStats('allow_all');
+
+      if (window.location.href.indexOf("hovisepat") > -1) {
+        sf_cc.setCookie('rlx-consent', true, 30);
+      }
+
+      if (typeof gtag !== 'undefined') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'analytics_storage': 'granted',
+          'personalization_storage': 'granted',
+        });
+      }
+
+      sf_cc.setCookie('cookie_consent_preferences', 'all', 30);
+
+      if (typeof window.dataLayer !== 'undefined') {
+        window.dataLayer.push({
+          'event': 'cookieAccept',
+          'cookieAccepted': 'yes',
+          "cookieAcceptLevel": "all"
+        });
+      }
+    },
+    helper: function (e, callback, value, value2) {
+      if (event.keyCode === 13 || event.keyCode === 32) {
+        callback(value, value2);
+      }
+    },
+    blockAll: function () {
+      sf_cc.closeBar();
+      sf_cc.closeModal();
+
+      if (typeof gtag !== 'undefined') {
+
+        var consent = {
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied',
+          'personalization_storage': 'denied'
+        }
+
+        if (window.sfNethit === 1 && sfAny()) {
+          consent = {
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted',
+            'personalization_storage': 'denied'
+          }
+        }
+
+        gtag('consent', 'update', consent);
+
+        if (typeof sf_blocker !== 'undefined') {
+          sf_blocker.unblock('/google/');
+        }
+      }
+
+      if (window.location.href.indexOf("hovisepat") > -1) {
+        sf_cc.setCookie('rlx-consent', false, 30);
+      }
+
+      localStorage.setItem('sf-cc', 'block_all');
+      sf_cc.sendStats('block_all');
+
+      if (typeof window.dataLayer !== 'undefined') {
+        window.dataLayer.push({
+          'event': 'cookieAccept',
+          'cookieAccepted': 'yes',
+          "cookieAcceptLevel": "necessary"
+        });
+      }
+
+      sf_cc.setCookie('cookie_consent_preferences', 'necessary', 30);
+
+      sf_cc.clearAllExceptNecessary();
+
+      if (typeof gtag !== 'undefined') {
+
+        var consent = {
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied',
+          'personalization_storage': 'denied'
+        }
+
+        if (window.sfNethit === 1 && sfAny()) {
+          consent = {
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted',
+            'personalization_storage': 'denied'
+          }
+        }
+
+        gtag('consent', 'update', consent);
+      }
+
+      sf_cc.setCookie('cookie_consent_preferences', 'necessary', 30);
+    },
+    clearAllExceptNecessary: function () {
+      if (window.sfNethit === 1 && sfAny()) {
+      } else {
+        (function () {
+          var cookies = document.cookie.split("; ");
+          for (var c = 0; c < cookies.length; c++) {
+            var d = window.location.hostname.split(".");
+            while (d.length > 0) {
+              var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
+              var p = location.pathname.split('/');
+              document.cookie = cookieBase + '/';
+              while (p.length > 0) {
+                document.cookie = cookieBase + p.join('/');
+                p.pop();
+              }
+              d.shift();
+            }
+          }
+        })();
+      }
+    },
+    addCookieCSS: function () {
+      if (typeof window.sfAddedCSS === 'undefined') {
+        window.sfAddedCSS = 1;
+        var cookieBarData = cookieBarSettings;
+
+        var todayDate = new Date().toISOString().slice(0, 10);
+        var version = "?v7" + todayDate;
+
+        var analyticsRoot = 'https://cdn.serviceform.com/serviceform-tools/';
+
+        if (typeof sfPixel !== 'undefined') {
+          version = sfPixel.version;
+          analyticsRoot = sfPixel.analyticsRoot;
+        }
+        var css = analyticsRoot + 'privacy/sf-partner.css' + version + 'gg';
+
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = css;
+        document.getElementsByTagName("head")[0].appendChild(link);
+
+        var style = '<style>:root {\n' +
+          '    --cookie-button: ' + cookieBarData.buttonColor + ';\n' +
+          '    --cookie-button-color: ' + cookieBarData.buttonTextColor + ';\n' +
+          cookieBarData.sfCustomCSS +
+          '}</style>';
+
+        var element = document.querySelector('body');
+        if (!element) {
+          element = document.querySelector('html');
+        }
+
+        element.insertAdjacentHTML('afterbegin', style);
+      }
+    },
+    addCustomCSS: function () {
+      if (typeof window.sfAddedCustomCSS === 'undefined') {
+        window.sfAddedCustomCSS = 1;
+        var cookieBarData = cookieBarSettings;
+
+        var style = '<style>:root {\n' +
+          '    --cookie-button: ' + cookieBarData.buttonColor + ';\n' +
+          '    --cookie-button-color: ' + cookieBarData.buttonTextColor + ';\n' +
+          '}' + cookieBarData.sfCustomCSS +
+          '</style>';
+
+        var element = document.querySelector('body');
+        if (!element) {
+          element = document.querySelector('html');
+        }
+
+        element.insertAdjacentHTML('afterbegin', style);
+      }
+    },
+
+    buildCookieBar: function () {
+      var cookieBarData = cookieBarSettings;
+
+      var html = '<div id="sf-cookie-bar" style="display:none">\n' +
+        '    <div class="sf-cookie-controller-wrapper">\n' +
+        '        <div class="sf-cookie-message">\n' +
+        cookieBarData.cookieBarText +
+        '        </div>\n' +
+        '        <div class="sf-cookie-actions">\n' +
+        '            <div class="sf-cookie-button sf-cookie-customise" onclick="sf_cc.openModal();">\n' +
+        cookieBarData.customiseText +
+        '            </div>\n' +
+        '            <div class="sf-cookie-button sf-cookie-disagree" onclick="sf_cc.blockAll();">\n' +
+        cookieBarData.dontAllowText +
+        '            </div>\n' +
+        '            <div class="sf-cookie-button sf-cookie-allow" onclick="sf_cc.allowAll();">\n' +
+        cookieBarData.allowText +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </div>\n' +
+        '</div>';
+
+
+      var element = document.querySelector('body');
+      if (!element) {
+        element = document.querySelector('html');
+      }
+
+      element.insertAdjacentHTML('afterbegin', html);
+    },
+    openAccordion: function (e) {
+      var parent = e.parentElement.parentElement;
+      var body = parent.querySelector('.sf-cookie-accordion-body');
+      if (!body.classList.contains('sf-cc-open')) {
+        body.classList.add('sf-cc-open');
+      } else {
+        body.classList.remove('sf-cc-open');
+      }
+
+    },
+    agreeCookie: function (e, i) {
+      sf_cc.toggleElement(e, 'on');
+      var agree = cookieBarSettings.cookieTypes[i];
+      var currentStorage = localStorage.getItem('sf-cc');
+
+      if (currentStorage === 'allow_all' || currentStorage === 'block_all') {
+        currentStorage = '';
+      }
+
+      if (currentStorage && currentStorage !== '') {
+        var json = JSON.parse(currentStorage);
+      } else {
+        json = {
+          'agree': []
+        };
+      }
+
+      if (typeof json.agree === 'undefined') {
+        json.agree = [];
+      }
+
+      json.agree.push(agree);
+      var finalisedArray = json;
+
+      localStorage.setItem('sf-cc', JSON.stringify(finalisedArray));
+      sf_cc.sendStats('custom');
+
+    },
+    disagreeCookie: function (e, i) {
+      sf_cc.toggleElement(e, 'off');
+      var disagree = cookieBarSettings.cookieTypes[i];
+      var currentStorage = localStorage.getItem('sf-cc');
+
+      if (currentStorage === 'allow_all' || currentStorage === 'block_all') {
+        currentStorage = '';
+      }
+
+      if (currentStorage && currentStorage !== '') {
+        var json = JSON.parse(currentStorage);
+      } else {
+        json = {
+          'disagree': []
+        };
+      }
+
+      if (typeof json.disagree === 'undefined') {
+        json.disagree = [];
+      }
+
+      json.disagree.push(disagree);
+      var finalisedArray = json;
+
+      localStorage.setItem('sf-cc', JSON.stringify(finalisedArray));
+      sf_cc.sendStats('custom');
+    },
+    toggleElement: function (e, type) {
+      var parent = e.parentElement;
+      var agreeButton = parent.querySelector('.sf-cookie-allow');
+      var disagreeButton = parent.querySelector('.sf-cookie-disagree');
+
+      if (type === 'off') {
+        agreeButton.classList.remove('sf-cc-active');
+        disagreeButton.classList.add('sf-cc-active');
+      } else {
+        agreeButton.classList.add('sf-cc-active');
+        disagreeButton.classList.remove('sf-cc-active');
+      }
+
+      if (typeof window.cookieBarSettings.saveSettingsButton === 'undefined') {
+        window.cookieBarSettings.saveSettingsButton = 'Save settings';
+      }
+
+      document.querySelector('.sf-cookie-actions-inside').innerHTML = '<div class="sf-cookie-button sf-cookie-allow" role="button" tabindex="2" aria-label="' + window.cookieBarSettings.saveSettingsButton + '" onkeydown="sf_cc.helper(event, sf_cc.saveSettings)" onclick="sf_cc.saveSettings();">\n' +
+        window.cookieBarSettings.saveSettingsButton +
+        '</div>\n';
+    },
+    saveSettings: function () {
+      var allCookies = ['necessary'];
+
+      var all = document.querySelectorAll('.sf-cc-active');
+      for (var i = 0; i < all.length; i++) {
+        if (all[i].getAttribute('cookie')) {
+          allCookies.push(all[i].getAttribute('cookie'));
+        }
+      }
+
+      var cookieValue = allCookies.join('|');
+
+      if (window.location.href.indexOf("hovisepat") > -1) {
+        if (cookieValue.indexOf("rolex") > -1) {
+          sf_cc.setCookie('rlx-consent', true, 30);
+
+          if (document.getElementById("rlx-corner")) {
+            document.getElementById("rlx-corner").contentWindow.postMessage("consentTrue", "https://corners.rolex.com");
+            document.getElementById("rlx-corner").contentWindow.postMessage("consentValidation", "https://corners.rolex.com");
+          }
+        } else {
+          sf_cc.setCookie('rlx-consent', false, 30);
+
+          if (document.getElementById("rlx-corner")) {
+            document.getElementById("rlx-corner").contentWindow.postMessage("consentFalse", "https://corners.rolex.com");
+          }
+        }
+      }
+
+      var consent = {}
+      if (cookieValue.indexOf("marketing") > -1) {
+        consent['ad_storage'] = 'granted';
+        sf_blocker.unblock('criteo');
+        sf_blocker.unblock('custobar');
+        sf_blocker.unblock('bing');
+        sf_blocker.unblock('youtube');
+        sf_blocker.unblock('yotpo');
+        sf_blocker.unblock('analytics.tiktok');
+        sf_blocker.unblock('google');
+        sf_blocker.unblock('facebook');
+        sf_blocker.unblock('hs-scripts');
+        sf_blocker.unblock('licdn.com');
+        sf_blocker.unblock('lftracker');
+        sf_blocker.unblock('recaptcha');
+      } else {
+        consent['ad_storage'] = 'denied';
+      }
+      if (cookieValue.indexOf("preferences") > -1) {
+        consent['personalization_storage'] = 'granted';
+      } else {
+        consent['personalization_storage'] = 'denied';
+      }
+      if (cookieValue.indexOf("statistics") > -1) {
+        consent['analytics_storage'] = 'granted';
+      } else {
+        consent['analytics_storage'] = 'denied';
+      }
+
+      if (window.sfNethit && sfAny()) {
+        consent = {
+          'ad_storage': 'granted',
+          'analytics_storage': 'granted',
+          'personalization_storage': 'denied',
+        }
+      }
+
+      if (typeof gtag !== 'undefined') {
+        gtag('consent', 'update', consent);
+      }
+
+      sf_cc.setCookie('cookie_consent_preferences', cookieValue, 30);
+
+      if (typeof window.dataLayer !== 'undefined') {
+
+        window.dataLayer.push({
+          'event': 'cookieAccept',
+          'cookieAccepted': 'yes',
+          "cookieAcceptLevel": cookieValue
+        });
+      }
+
+      if (allCookies.length === 1) {
+        sf_cc.clearAllExceptNecessary();
+      }
+
+      sf_cc.closeBar();
+      sf_cc.closeModal();
+    },
+    generateId: function (length) {
+      var s = '';
+      do {
+        s += Math.random().toString(36).substr(2);
+      } while (s.length < length);
+      s = s.substr(0, length);
+
+      return s;
+    },
+    sendStats: function (type) {
+
+      var event = new Date();
+
+      var session = sf_cc.generateId(16);
+      if (typeof sfPixel !== 'undefined' && typeof sfPixel.stats.session !== 'undefined') {
+        session = sfPixel.stats.session;
+      }
+
+      var whitelabel = '';
+      var element = document.querySelector('#sf-cookie');
+      if (element) {
+        whitelabel = element.getAttribute('uid');
+      }
+
+      var head = document.querySelector('head');
+      if (head) {
+        if (head.innerHTML.indexOf("?v=nethit") !== -1) {
+          whitelabel = 'nethit';
+        }
+      }
+
+      var stats = {
+        pid: sf_cc.sitename,
+        session: session,
+        flowType: "cookie",
+        date: event.toISOString(),
+        source: "cookie",
+        whitelabel: whitelabel,
+        type: "cookie-statistics",
+        data: type,
+        url: window.location.host,
+        fullUrl: window.location.href
+      }
+
+      stats.pid = sf_cc.sitename.toString();
+      var data = JSON.stringify(stats);
+      var url = "https://zy1ssnfwwl.execute-api.eu-north-1.amazonaws.com/default/statistics-function";
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", url);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.send(data);
+    },
+    getDeepCookies: function (type) {
+
+      var cookieBarData = window.cookieBarSettings;
+      var cookieTypes = cookieBarData.cookieTypes;
+
+      var agreedData = '';
+      var cookieTypeHtml = '';
+      var currentStorage = localStorage.getItem('sf-cc');
+      if (currentStorage !== '' || currentStorage === 'allow_all' || currentStorage === 'block_all') {
+        agreedData = currentStorage;
+      } else {
+        agreedData = JSON.parse(currentStorage);
+      }
+
+      for (var i = 0; i < cookieTypes.length; i++) {
+
+        var cookieDeep = '';
+        var cc = cookieTypes[i].cookieList;
+        for (var k = 0; k < cc.length; k++) {
+
+          var duration = cc[k].duration;
+          if (duration && typeof duration !== 'undefined') {
+            duration = '- ' + duration;
+          }
+
+          cookieDeep += '<div class="sf-cookie-deep">' + cc[k].cookie + ': ' + cc[k].name + ' ' + duration + '</div>';
+        }
+
+        var allowed = '';
+        var disagreed = '';
+
+        if (agreedData === 'allow_all') {
+          allowed = 'sf-cc-active';
+        } else if (agreedData === 'block_all') {
+          disagreed = 'sf-cc-active';
+        }
+
+        if (typeof cookieBarData.alwaysActive === 'undefined') {
+          cookieBarData.alwaysActive = 'Always active';
+        }
+
+        var buttons = '<div class="sf-cookie-buttons always-active">' + cookieBarData.alwaysActive + '</div>';
+        if (!cookieTypes[i].necessary) {
+          allowed = '';
+          disagreed = '';
+          var updatedCookies = sf_cookie_getCookie('cookie_consent_preferences');
+          if (updatedCookies.includes(cookieTypes[i].machine) || updatedCookies === 'all') {
+            allowed = 'sf-cc-active';
+          } else {
+            disagreed = 'sf-cc-active';
+          }
+          buttons = '<div class="sf-cookie-buttons">\n' +
+            '                                <div role="button" tabindex="2" aria-label="' + cookieBarData.disagreeText + '"  class="sf-cookie-button sf-cookie-disagree ' + disagreed + '" onkeydown="sf_cc.helper(event,sf_cc.disagreeCookie, this, ' + i + ')" onclick="sf_cc.disagreeCookie(this,' + i + ')">\n' +
+            cookieBarData.disagreeText +
+            '                                </div>\n' +
+            '                                <div role="button" tabindex="2" aria-label="' + cookieBarData.agreeText + '" cookie="' + cookieTypes[i].machine + '"  class="sf-cookie-button sf-cookie-allow ' + allowed + '" onkeydown="sf_cc.helper(event,sf_cc.agreeCookie, this, ' + i + ')" onclick="sf_cc.agreeCookie(this,' + i + ')">\n' +
+            cookieBarData.agreeText +
+            '                                </div>\n' +
+            '                            </div>\n';
+        }
+
+        var cookieTemplate = '<div class="sf-cookie-settings-accordion">\n' +
+          '                        <div class="sf-cookie-accordion-header">\n' +
+          '                            <div class="sf-cookie-type" role="button" tabindex="2" aria-label="' + cookieTypes[i].name + '" onclick="sf_cc.openAccordion(this)" onkeydown="sf_cc.helper(event, sf_cc.openAccordion, this, \'\')">\n' +
+          '                               <span class="sf-cookie-plus">+</span> ' + cookieTypes[i].name +
+          '                            </div>\n' +
+          buttons +
+          '                        </div>\n' +
+          '                        <div class="sf-cookie-accordion-body">\n' +
+          cookieTypes[i].description +
+          '<div class="sf-cookie-deep-dive">' +
+          '<div class="sf-cookie-list">' +
+          cookieDeep +
+          '</div>' +
+          '</div>' +
+          '                        </div>\n' +
+          '                    </div>';
+
+        cookieTypeHtml += cookieTemplate;
+      }
+
+      if (type === 'rebuild') {
+
+        sf_cc.addCustomCSS();
+
+        if (cookieTypeHtml !== null) {
+          var cookieTypeSelector = document.querySelector('.cookie-types');
+          if (cookieTypeSelector) {
+            cookieTypeSelector.innerHTML = cookieTypeHtml;
+          }
+        }
+      } else {
+        return cookieTypeHtml;
+      }
+    },
+    buildPrivacyModal: function () {
+
+      var cookieBarData = cookieBarSettings;
+
+      var cookieTypeHtml = sf_cc.getDeepCookies('normal');
+      var currentStorage = localStorage.getItem('sf-cc');
+
+      if (typeof cookieBarData.manageCookiesHeader === 'undefined') {
+        cookieBarData.manageCookiesHeader = 'Manage cookies';
+      }
+
+      var cookieButtons = '<div class="sf-cookie-actions-inside">\n' +
+        '                    <div class="sf-cookie-button sf-cookie-configure-now" role="button"  tabindex="1" aria-label="' + window.cookieBarSettings.customiseText + '"  onclick="document.querySelector(\'.sf-cookie-bottom\').style.display = \'block\';document.querySelector(\'.sf-cookie-configure-now\').style.display = \'none !important\';">\n' +
+        window.cookieBarSettings.customiseText +
+        '                    </div>\n' +
+        '                    <div class="sf-cookie-button sf-cookie-disable" role="button"  tabindex="1" aria-label="' + cookieBarData.dontAllowText + '"  onclick="sf_cc.blockAll();" onkeydown="sf_cc.helper(event,sf_cc.blockAll, \'\', \'\');">\n' +
+        cookieBarData.dontAllowText +
+        '                    </div>\n' +
+        '                    <div role="button" tabindex="1" aria-label="' + cookieBarData.allowText + '" class="sf-cookie-button sf-cookie-allow" onclick="sf_cc.allowAll();" onkeydown="sf_cc.helper(event,sf_cc.allowAll, \'\', \'\');">\n' +
+        cookieBarData.allowText +
+        '                    </div>\n' +
+        '                </div>\n';
+
+
+      var closeButton = '<div class="sf-close-settings" onclick="sf_cc.closeModal();">\n' +
+        '                <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n' +
+        '                    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.701195126" stroke-linecap="square">\n' +
+        '                        <g id="Group" transform="translate(4.000000, 4.000000)" fill-rule="nonzero" stroke="#FFFFFF" stroke-width="2">\n' +
+        '                            <path d="M10.3917478,-3.10288257 L9.76079544,22.7661651" id="Line" transform="translate(10.076272, 9.831641) rotate(45.000000) translate(-10.076272, -9.831641) "></path>\n' +
+        '                            <path d="M9.40724205,-3.10288257 L10.0381944,22.7661651" id="Line" transform="translate(9.722718, 9.831641) rotate(-45.000000) translate(-9.722718, -9.831641) "></path>\n' +
+        '                        </g>\n' +
+        '                    </g>\n' +
+        '                </svg>\n' +
+        '            </div>\n';
+
+      if (currentStorage === '' || currentStorage === null) {
+        closeButton = '';
+      }
+
+      var html = '<div id="sf-cookie-modal" data-nosnippet style="display:none">\n' +
+        '    <div id="sf-cookie-settings">\n' +
+        '        <div class="sf-cookie-settings-wrapper">\n' +
+        closeButton +
+        '            <div class="sf-cookie-top" style="background-color: ' + cookieBarData.privacyModalHeaderBackground + '">\n' +
+        '                <div class="sf-cookie-settings-header">' + cookieBarData.privacyModalHeader + '</div>\n' +
+        '                <div class="sf-cookie-settings-description">\n' +
+        cookieBarData.privacyModalText +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="sf-cookie-bottom">\n' +
+        '                <div class="sf-cookie-settings-accordion-wrapper">\n' +
+        '                    <div class="sf-cookie-settings-sub-header">\n' +
+        cookieBarData.manageCookiesHeader +
+        '                    </div>\n' +
+        '<div class="cookie-types">' +
+        cookieTypeHtml +
+        '</div>' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="sf-cookie-settings-powered">\n' +
+        '                <div class="sf-cookie-powered">\n' +
+        '                    <img src="https://cdn.serviceform.com/serviceform-tools/privacy/privacy-by-sf.png">\n' +
+        '                </div>\n' +
+        cookieButtons +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </div>\n' +
+        '</div>\n';
+
+      var element = document.querySelector('body');
+      if (!element) {
+        element = document.querySelector('html');
+      }
+
+      element.insertAdjacentHTML('afterbegin', html);
+    },
+    cT: function (string) {
+
+      var translations = [
+        {
+          "FI": "Muokkaa asetuksia",
+          "EN": "Customize",
+          "SV": "Anpassa",
+          "RU": "Настроить",
+          "CS": "Přizpůsobit",
+          "ES": "Personalizar",
+          "FR": "Personnaliser",
+          "DE": "Anpassen",
+          "ET": "Näita detaile",
+          "LV": "Pielāgot"
+        },
+        {
+          "FI": "Hyväksy asetukset",
+          "EN": "Save settings",
+          "SV": "Tillåt",
+          "RU": "Разрешить",
+          "CS": "Povolit",
+          "ES": "Permitir",
+          "FR": "Autoriser",
+          "DE": "Zulassen",
+          "ET": "Luba",
+          "LV": "Atļaut"
+        },
+        {
+          "FI": "Hylkää kaikki",
+          "EN": "Deny all",
+          "SV": "Avvisa alla",
+          "RU": "Запретить все",
+          "CS": "Odmítnout vše",
+          "ES": "Denegar todas",
+          "FR": "Tout refuser",
+          "DE": "Alle ablehnen",
+          "ET": "Kinnita kõik",
+          "LV": "Noraidīt visus"
+        },
+        {
+          "FI": "Aina hyväksytty",
+          "EN": "Always active",
+          "SV": "Alltid aktiv",
+          "RU": "Разрешить навсегда",
+          "CS": "Vždy aktivní",
+          "ES": "Siempre activas",
+          "FR": "Toujours actif",
+          "DE": "Immer aktiv",
+          "ET": "Alati aktiivne",
+          "LV": "Vienmēr aktīvs"
+        },
+        {
+          "FI": "Hallitse evästeryhmiä",
+          "EN": "Manage cookie groups",
+          "SV": "Hantera cookiegrupper",
+          "RU": "Управление группами файлов cookie",
+          "CS": "Spravovat skupiny souborů cookie",
+          "ES": "Administrar grupos de cookies",
+          "FR": "Gérer les groupes de cookies",
+          "DE": "Cookie-Gruppen verwalten",
+          "ET": "Küpsiste rühmade haldamine",
+          "LV": "Pārvaldīt sīkfailu grupas"
+        },
+        {
+          "FI": "Lisätietoja evästeistä ja yksityisyydestä",
+          "EN": "More information about cookies and privacy",
+          "SV": "Mer information om cookies och integritet",
+          "RU": "Допалнительная информация файлах cookie и конфиденциальности",
+          "CS": "Více informací o souborech cookie a soukromí",
+          "ES": "Más información acerca de las cookies y la privacidad",
+          "FR": "Plus de renseignements concernant les cookies et la confidentialité",
+          "DE": "Weitere Informationen zu Cookies und Datenschutz",
+          "ET": "Lisateave küpsiste ja andmekaitse kohta",
+          "LV": "Plašāka informācija par sīkdatnēm un datu aizsardzību"
+        },
+        {
+          "FI": "Valitsemalla “Hyväksy kaikki”, sallit, että tallennamme evästeitä laitteellesi erilaisia tarkoituksia varten, kuten taataksemme sivuston toimivuuden. Voit muuttaa evästeasetuksiasi milloin tahansa sivun lopusta löytyvästä linkistä.",
+          "EN": "By clicking “Allow All”, you agree to the storing of cookies on your device for various purposes, such as ensuring the proper functioning of the website. You can change your cookie settings from the bottom of the page at any time.",
+          "SV": "Genom att klicka på ”Tillåt alla” samtycker du till att cookies lagras på din enhet för olika ändamål, till exempel för att säkerställa att webbplatsen fungerar som den ska. Du kan när som helst ändra dina cookieinställningar längst ner på sidan.",
+          "RU": "Нажимая \"Разрешить все\", вы соглашаетесь на хранение файлов cookie\nна вашем устройстве для различных целей, таких как обеспечение\nнадлежащего функционирования веб-сайта. Вы можете изменить\nнастройки своих файлов cookie в любое время.",
+          "CS": "Kliknutím na možnost „Povolit vše“ souhlasíte s ukládáním souborů cookie ve vašem zařízení pro různé účely, jako je zajištění správného fungování webu. Nastavení souborů cookie můžete kdykoli změnit v dolní části stránky.",
+          "ES": "Al hacer clic en \"Permitir todas\", usted acepta que se almacenen cookies en su dispositivo para diversos fines, como garantizar el correcto funcionamiento del sitio web. Puede cambiar la configuración de las cookies en cualquier momento en la parte inferior de la página.",
+          "FR": "En cliquant sur « Tout autoriser », vous acceptez que des cookies soient stockés sur votre appareil à diverses fins, notamment pour assurer le bon fonctionnement du site web. Vous pouvez à tout moment modifier vos paramètres de cookies depuis le bas de la page.",
+          "DE": "Mit einem Klick auf „Alle zulassen“, stimmen Sie zu, dass Cookies auf Ihrem Gerät zu verschiedenen Zwecken gespeichert werden, z. B. um das ordnungsgemäße Funktionieren der Website zu gewährleisten. Sie können Ihre Cookie-Einstellungen jederzeit unten auf der Seite ändern.",
+          "ET": "Klõpsates \"Luba kõik\", nõustute sellega, et küpsiseid võib teie seadmesse salvestada erinevatel eesmärkidel, nt. B. et tagada veebisaidi nõuetekohane toimimine. Saate oma küpsiste seadeid igal ajal muuta selle lehe allosas.",
+          "LV": "Noklikšķinot uz \"Atļaut visu\", jūs piekrītat, ka sīkdatnes var tikt saglabātas jūsu ierīcē dažādiem mērķiem, piem. B. lai nodrošinātu pareizu vietnes darbību. Jūs jebkurā laikā varat mainīt savus sīkfailu iestatījumus šīs lapas apakšā."
+        },
+        {
+          "FI": "Hyväksy kaikki",
+          "EN": "Allow all",
+          "SV": "Tillåt alla",
+          "RU": "Разрешить всё",
+          "CS": "Povolit vše",
+          "ES": "Permitir todas",
+          "FR": "Tout autoriser",
+          "DE": "Alle zulassen",
+          "ET": "Luba kõik",
+          "LV": "Pieņemt visus"
+
+        },
+        {
+          "FI": "Muokkaa evästeasetuksia",
+          "EN": "Change cookie settings",
+          "SV": "Ändra cookieinställningar",
+          "RU": "Изменить настройки файлов cookie",
+          "CS": "Změnit nastavení souborů cookie",
+          "ES": "Cambiar configuración de cookies",
+          "FR": "Changer les paramètres des cookies",
+          "DE": "Cookie-Einstellungen ändern",
+          "ET": "Muutke küpsiste seadeid",
+          "LV": "Mainiet sīkfailu iestatījumus"
+        },
+        {
+          "FI": "Hyväksy",
+          "EN": "Allow",
+          "SV": "Tillåt",
+          "RU": "Разрешить",
+          "CS": "Povolit",
+          "ES": "Permitir",
+          "FR": "Autoriser",
+          "DE": "Zulassen",
+          "ET": "Luba",
+          "LV": "Atļaut"
+        },
+        {
+          "FI": "Hylkää",
+          "EN": "Deny",
+          "SV": "Avvisa",
+          "RU": "Запретить",
+          "CS": "Zamítnout",
+          "ES": "Denegar",
+          "FR": "Refuser",
+          "DE": "Ablehnen",
+          "ET": "Keeldu",
+          "LV": "Noraidīt"
+        },
+        {
+          "FI": "Välttämättömät evästeet",
+          "EN": "Strictly necessary cookies",
+          "SV": "Strikt nödvändiga cookies",
+          "RU": "Строго необходимые файлы cookie",
+          "CS": "Nezbytně nutné soubory cookie",
+          "ES": "Cookies estrictamente necesarias",
+          "FR": "Cookies strictement nécessaires",
+          "DE": "Unbedingt erforderliche Cookies",
+          "ET": "Vajalikud küpsised",
+          "LV": "Stingri nepieciešamie cepumi"
+        },
+        {
+          "FI": "Tähän ryhmään kuuluvat kaikki sivuston toimivuuden kannalta välttämättömät evästeet, kuten esimerkiksi evästeet, joita tarvitaan käyttöistuntosi hallintaan tai pyytämäsi palvelun toteuttamiseen.",
+          "EN": "These are cookies that are required for the proper operation of our website. They may include, for example, cookies that enable us to manage your user session or provide you with a service you requested.",
+          "SV": "Detta är cookies som krävs för att vår webbplats ska fungera korrekt. Här kan exempelvis ingå cookies som gör att vi kan hantera din användarsession eller förse dig med en tjänst som du har begärt.",
+          "RU": "Это файлы cookie, необходимые для правильной работы нашего веб-сайта. Они могут включать, например, файлы cookie, которые позволяют нам управлять вашим пользовательским сеансом или предоставлять вам запрошенную вами услугу.",
+          "CS": "Tyto soubory cookie jsou nezbytné pro správné fungování našich webových stránek. Mohou to být například soubory cookie, které nám umožňují spravovat vaši uživatelskou relaci nebo vám poskytnout požadovanou službu.",
+          "ES": "Se trata de cookies necesarias para el correcto funcionamiento de nuestro sitio web. Pueden incluir, por ejemplo, cookies que nos permiten gestionar su sesión de usuario o proporcionarle un servicio que ha solicitado.",
+          "FR": "Il s'agit de cookies qui sont nécessaires au bon fonctionnement de notre site web. Ils peuvent inclure, par exemple, des cookies qui nous permettent de gérer votre session utilisateur ou de vous fournir un service que vous avez demandé.",
+          "DE": "Diese Cookies sind für den ordnungsgemäßen Betrieb unserer Website erforderlich. Dazu können zum Beispiel Cookies gehören, mit deren Hilfe wir Ihre Benutzersitzung verwalten oder Ihnen eine von Ihnen angeforderte Dienstleistung erbringen können.",
+          "ET": "Need küpsised on vajalikud meie veebisaidi nõuetekohaseks toimimiseks. See võib hõlmata näiteks küpsiseid, mis võimaldavad meil hallata teie kasutajaseanssi või pakkuda teile soovitud teenust.",
+          "LV": "Šīs sīkdatnes ir nepieciešamas pareizai mūsu vietnes darbībai. Tas var ietvert, piemēram, sīkfailus, kas ļauj mums pārvaldīt jūsu lietotāja sesiju vai nodrošināt jums pieprasīto pakalpojumu."
+        },
+        {
+          "FI": "Mukautusevästeet",
+          "EN": "Preference cookies",
+          "SV": "Inställningscookies",
+          "RU": "Файлы cookies по предпочтениям",
+          "CS": "Preferenční soubory cookie",
+          "ES": "Cookies de preferencias",
+          "FR": "Cookies de préférence",
+          "DE": "Präferenz-Cookies",
+          "ET": "Eelistusküpsised",
+          "LV": "Preferences sīkfaili"
+        },
+        {
+          "FI": "Nämä evästeet auttavat meitä tallentamaan asetuksia tai muulla tavoin räätälöimään verkkosivukokemusta juuri sinulle.",
+          "EN": "These are cookies that enable us to save your preferences or otherwise tailor the website experience for you specifically.",
+          "SV": "Detta är cookies vi använder för oss att spara dina inställningar eller på annat sätt skräddarsy webbplatsupplevelsen specifikt för dig.",
+          "RU": "Это файлы cookie, которые позволяют нам сохранять ваши предпочтения или иным образом настраивать работу веб-сайта специально для вас.",
+          "CS": "Tyto soubory cookie nám umožňují ukládat vaše preference nebo jinak přizpůsobovat webové stránky konkrétně pro vás.",
+          "ES": "Se trata de cookies que nos permiten guardar sus preferencias o adaptar la experiencia del sitio web específicamente para usted.",
+          "FR": "Il s'agit de cookies qui nous permettent d'enregistrer vos préférences ou d'adapter l'expérience du site web à vos besoins spécifiques.",
+          "DE": "Diese Cookies ermöglichen es uns, Ihre Präferenzen zu speichern oder die Website anderweitig speziell auf Sie zuzuschneiden.",
+          "ET": "Need küpsised võimaldavad meil teie eelistusi meeles pidada või veebisaiti muul viisil teie jaoks kohandada.",
+          "LV": "Šīs sīkdatnes ļauj mums atcerēties jūsu preferences vai citādi pielāgot vietni jums."
+        },
+        {
+          "FI": "Tilastoevästeet",
+          "EN": "Statistics cookies",
+          "SV": "Statistikcookies",
+          "RU": "Статистические файлы cookie",
+          "CS": "Statistické soubory cookie",
+          "ES": "Cookies de estadísticas",
+          "FR": "Cookies de statistiques",
+          "DE": "Statistik-Cookies",
+          "ET": "Statistikaküpsised",
+          "LV": "Statistikas sīkfaili"
+        },
+        {
+          "FI": "Näillä evästeillä tallennamme nimetöntä tietoa käynnistäsi verkkosivuillamme, sivuista, joilla olet käynyt, linkeistä, joita olet seurannut, sekä vastaavaa tilastollista tietoa. Käytämme tietoja ymmärtääksemme paremmin sivustomme käyttöä ja parantaaksemme palveluitamme.",
+          "EN": "These cookies record personally non-identifiable information about your visit to our website, the pages you have visited, the links you have followed and similar statistical information. We use the information to gain a better understanding of the use of our website and improve our services.",
+          "SV": "Dessa cookies registrerar personlig icke-identifierbar information om ditt besök på vår webbplats, de sidor du har besökt, länkarna du har följt och liknande statistisk information. Vi använder informationen för att få en bättre förståelse för hur vår webbplats används och hur våra tjänster kan förbättras.",
+          "RU": "Эти файлы cookie записывают личную неидентифицируемую информацию о вашем посещении нашего веб-сайта, страницах, которые вы посетили, ссылках, по которым вы перешли, и аналогичной статистической информации. Мы используем эту информацию для лучшего понимания использования нашего веб-сайта и улучшения наших услуг.",
+          "CS": "Tyto soubory cookie zaznamenávají osobní neidentifikovatelné informace o vaší návštěvě našich webových stránek, navštívené stránky, odkazy, které jste následovali, a podobné statistické informace. Tyto informace používáme k lepšímu pochopení používání našich webových stránek a ke zlepšení našich služeb.",
+          "ES": "Estas cookies registran información personal no identificable sobre su visita a nuestro sitio web, las páginas que ha visitado, los enlaces que ha seguido e información estadística similar. Utilizamos esta información para comprender mejor el uso de nuestro sitio web y mejorar nuestros servicios.",
+          "FR": "Ces cookies enregistrent des informations non identifiables personnellement concernant votre visite sur notre site web, les pages que vous avez visitées, les liens que vous avez suivis et des informations statistiques similaires. Nous utilisons ces informations pour mieux comprendre l'utilisation de notre site web et améliorer nos services.",
+          "DE": "Diese Cookies speichern Informationen über Ihren Besuch auf unserer Website, die von Ihnen besuchten Seiten, die von Ihnen verfolgten Links sowie ähnliche statistische Daten, die nicht persönlich auf Sie zurückzuführen sind. Wir verwenden diese Angaben, um besser zu verstehen, wie unsere Website genutzt wird, und um unsere Dienstleistungen zu verbessern.",
+          "ET": "Need küpsised salvestavad teavet teie veebisaidi külastuse, külastatud lehtede, teie jälgitud linkide ja sarnaseid mitteisikulisi statistilisi andmeid. Kasutame seda teavet meie veebisaidi kasutamise paremaks mõistmiseks ja teenuste täiustamiseks.",
+          "LV": "Šīs sīkdatnes saglabā informāciju par jūsu apmeklējumu mūsu vietnē, apmeklētajām lapām, saitēm, kurām sekojāt, un līdzīgus nepersoniskus statistikas datus. Mēs izmantojam šo informāciju, lai labāk izprastu, kā tiek izmantota mūsu vietne, un uzlabotu mūsu pakalpojumus."
+        },
+        {
+          "FI": "Markkinointievästeet",
+          "EN": "Marketing cookies",
+          "SV": "Marknadsföringscookies",
+          "RU": "Маркетинговые файлы cookie",
+          "CS": "Marketingové soubory cookie",
+          "ES": "Cookies de marketing",
+          "FR": "Cookies de marketing",
+          "DE": "Marketing-Cookies",
+          "ET": "Turundusküpsised",
+          "LV": "Mārketinga sīkfaili"
+        },
+        {
+          "FI": "Näitä evästeitä käytetään kävijöidemme seurantaan tarkoituksena tarjota mainontaa, joka on sinulle sopivaa ja kiinnostavaa. Saatamme myös samanlaisia markkinointitarkoituksia varten jakaa nimettömiä tietoja verkkosivujemme käytöstä kolmansille osapuolille.",
+          "EN": "These are cookies that enable us to make the advertising displayed to you more relevant to your interests. We may also share personally non-identifiable information about your website use with third parties for similar marketing purposes.",
+          "SV": "Detta är cookies som gör det möjligt för oss att göra den reklam som visas för dig mer relevant för dina intressen. Vi kan också dela personlig icke-identifierbar information om din webbplatsanvändning med tredje part för liknande marknadsföringsändamål.",
+          "RU": "Это файлы cookie, которые позволяют нам сделать показываемую вам рекламу более соответствующей вашим интересам. Мы также можем передавать личную неидентифицируемую информацию об использовании вашего веб-сайта третьим лицам в аналогичных маркетинговых целях.",
+          "CS": "Tyto soubory cookie umožňují, aby reklama, která se vám zobrazuje, lépe odpovídala vašim zájmům. Osobní neidentifikovatelné informace o vašem používání webových stránek můžeme také sdílet s třetími stranami pro podobné marketingové účely.",
+          "ES": "Estas cookies nos permiten hacer que la publicidad que se le muestra sea más relevante para sus intereses. También podemos compartir información personal no identificable sobre su uso del sitio web con terceros con fines de marketing similares.",
+          "FR": "Il s'agit de cookies qui nous permettent de rendre la publicité qui vous est affichée plus pertinente par rapport à vos intérêts. Nous pouvons également partager avec des tiers, à des fins de marketing similaires, des informations non identifiables personnellement sur votre utilisation du site web.",
+          "DE": "Diese Cookies ermöglichen es uns, die Ihnen angezeigte Werbung besser auf Ihre Interessen zuzuschneiden. Unter Umständen teilen wir Informationen über Ihre Nutzung der Website, die nicht persönlich auf Sie zurückzuführen sind, zu ähnlichen Marketingzwecken Drittparteien mit.",
+          "ET": "Need küpsised võimaldavad meil teile kuvatavaid reklaame paremini teie huvidele vastavaks kohandada. Võime jagada mitteisikut tuvastavat teavet saidi kasutamise kohta kolmandate osapooltega sarnastel turunduseesmärkidel.",
+          "LV": "Šīs sīkdatnes ļauj mums labāk pielāgot jums redzamās reklāmas jūsu interesēm. Mēs varam kopīgot personu neidentificējošu informāciju par vietnes izmantošanu ar trešajām pusēm līdzīgos mārketinga nolūkos."
+        }
+      ];
+
+      var language = window.sfCookieLang;
+      if (language !== 'EN') {
+        for (var k = 0; k < translations.length; k++) {
+          var english = translations[k].EN;
+          if (english === string) {
+            if (typeof translations[k][language] !== 'undefined') {
+              return translations[k][language];
+            }
+          }
+        }
+
+        return string;
+      } else {
+        return string;
+      }
+    },
+    setCookie(cname, cvalue, exdays) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    },
+    getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+  }
+
+  if (typeof window.initedCookies === 'undefined') {
+    window.initedbar = 1;
+    sf_cc.initBar();
+  }
+}
