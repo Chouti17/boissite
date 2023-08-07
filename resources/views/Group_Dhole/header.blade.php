@@ -1,3 +1,16 @@
+@php
+use App\Models\Panier;
+
+    if (!isset($_COOKIE['panier']))
+        {
+        $identifiants=Str::uuid();
+        setcookie('panier',$identifiants, time() + (86400 * 30), "/"); //name,value,time,url      
+        }else{
+            $identifiants=$_COOKIE['panier'];
+        }
+     
+        $produits=Panier::where('identifiant',$identifiants)->get();
+@endphp
 <div class="container-fluid bg-dark px-5 d-none d-lg-block">
     <div class="row gx-0">
         <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">

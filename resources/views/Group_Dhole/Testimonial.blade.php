@@ -1,14 +1,27 @@
+@php
+use App\Models\Panier;
+
+    if (!isset($_COOKIE['panier']))
+        {
+        $identifiants=Str::uuid();
+        setcookie('panier',$identifiants, time() + (86400 * 30), "/"); //name,value,time,url      
+        }else{
+            $identifiants=$_COOKIE['panier'];
+        }
+     
+        $produits=Panier::where('identifiant',$identifiants)->get();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Startup - Startup Website Template</title>
+        <title>GROUP-DHOLE</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free HTML Templates" name="keywords">
         <meta content="Free HTML Templates" name="description">
     
         <!-- Favicon -->
-        <link href="/img/favicon.ico" rel="icon">
+        <link href="/images/porte-conteneurs.png" rel="icon">
     
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

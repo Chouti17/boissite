@@ -2,13 +2,13 @@
 <html lang="en">
     <head>
     <meta charset="utf-8">
-    <title>Startup - Startup Website Template</title>
+    <title>GROUP-DHOLE</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="/img/favicon.ico" rel="icon">
+    <link href="/images/porte-conteneurs.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -145,7 +145,7 @@
                         <h4 class="text-primary mb-0">+44 7441 427902</h4>
                     </div>
                 </div>
-                <a href="quote.html" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Pyydä tarjous</a>
+                <a href="/arvio" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Pyydä tarjous</a>
             </div>
             <div class="col-lg-5" style="min-height: 500px;">
                 <div class="position-relative h-100">
@@ -219,7 +219,7 @@
                     <div class="team-img position-relative overflow-hidden " style="background-color: #EAE9EE;">
                         <img class="img-fluid w-100 mb-5" src="/images/conteneur 8 pied.jpg" alt="">
                         <div class="team-social">
-                          <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="">Lisää ostoskoriin</a>
+                          <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="/ajout/2">Lisää ostoskoriin</a>
                           
                         </div>
                       
@@ -268,9 +268,7 @@
                         <img class="img-fluid w-100" src="/images/20.jpg" alt="">
                         <div class="team-social">
 
-                          <form action="route{{'ajout'}}" method="POST">
-                            @csrf
-                            @method('post')
+                         
                             <div class="d-none">
                               <input type="text" name="image" value="20.jpg">
                               <input type="text" name="nom" value="SÄILIÖ 20 JALKAA">
@@ -278,8 +276,8 @@
                               <input type="text" name="prix" value="3000">
                             </div>
                             
-                            <a class="btn rounded px-4 mx-auto mb-4 mt-4" type="submit" style="background-color: #F49122;color:white;" >Lisää ostoskoriin</a>
-                          </form>
+                            <a class="btn rounded px-4 mx-auto mb-4 mt-4" type="submit" href="/ajout/3" style="background-color: #F49122;color:white;" >Lisää ostoskoriin</a>
+                         
                           
                           
                         </div>
@@ -317,7 +315,7 @@
                     <div class="team-img position-relative overflow-hidden " style="background-color: #EAE9EE;">
                         <img class="img-fluid w-100" src="/images/41.jpg" alt="">
                         <div class="team-social">
-                          <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="">Lisää ostoskoriin</a>
+                          <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="/ajout/4">Lisää ostoskoriin</a>
                           
                         </div>
                       
@@ -365,7 +363,7 @@
                     <div class="team-img position-relative overflow-hidden " style="background-color: #EAE9EE;">
                         <img class="img-fluid w-100" src="/images/frigo.jpg" alt="">
                         <div class="team-social">
-                          <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="">Lisää ostoskoriin</a>
+                          <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="/ajout/5">Lisää ostoskoriin</a>
                           
                         </div>
                       
@@ -408,7 +406,7 @@
                     <div class="team-img position-relative overflow-hidden " style="background-color: #EAE9EE;">
                         <img class="img-fluid w-100" src="/images/40a.jpg" alt="">
                         <div class="team-social">
-                          <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="">Lisää ostoskoriin</a>
+                          <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href=/ajout/4"">Lisää ostoskoriin</a>
                           
                         </div>
                       
@@ -478,7 +476,7 @@
                   <div class="team-img position-relative overflow-hidden " style="background-color: #EAE9EE;">
                       <img class="img-fluid w-100 mb-4" src="images/bois6.jpg" alt="" style="height: 300px;">
                       <div class="team-social">
-                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="">Lisää ostoskoriin</a>
+                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="/ajout/6">Lisää ostoskoriin</a>
                         
                       </div>
                      
@@ -523,7 +521,7 @@
                   <div class="team-img position-relative overflow-hidden " style="background-color: #EAE9EE;">
                       <img class="img-fluid w-100 mb-5" src="/images/produit4bois.jpeg" alt="" style="height: 300px;">
                       <div class="team-social">
-                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="">Lisää ostoskoriin</a>
+                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="/ajout/7">Lisää ostoskoriin</a>
                         
                       </div>
                     
@@ -572,7 +570,7 @@
                   <div class="team-img position-relative overflow-hidden " style="background-color: #EAE9EE;">
                       <img class="img-fluid w-100" src="/images/produit6bois.jpeg" alt="">
                       <div class="team-social">
-                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="">Lisää ostoskoriin</a>
+                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="/ajout/8">Lisää ostoskoriin</a>
                         
                       </div>
                     
@@ -616,7 +614,7 @@
                   <div class="team-img position-relative overflow-hidden " style="background-color: #EAE9EE;">
                       <img class="img-fluid w-100" src="/images/bois2.jpg" alt="">
                       <div class="team-social">
-                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="">Lisää ostoskoriin</a>
+                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="/ajout/9">Lisää ostoskoriin</a>
                         
                       </div>
                     
@@ -665,7 +663,7 @@
                   <div class="team-img position-relative overflow-hidden " style="background-color: #EAE9EE;">
                       <img class="img-fluid w-100" src="/images/bois3.jpg" alt="">
                       <div class="team-social">
-                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="">Lisää ostoskoriin</a>
+                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="/ajout/10">Lisää ostoskoriin</a>
                         
                       </div>
                     
@@ -709,7 +707,7 @@
                   <div class="team-img position-relative overflow-hidden " style="background-color: #EAE9EE;">
                       <img class="img-fluid w-100" src="/images/bois4.jpg" alt="">
                       <div class="team-social">
-                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="">Lisää ostoskoriin</a>
+                        <a class="btn rounded px-4 mx-auto mb-4 mt-4" style="background-color: #F49122;color:white;" href="/ajout/11">Lisää ostoskoriin</a>
                         
                       </div>
                   </div>

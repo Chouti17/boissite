@@ -1,15 +1,28 @@
+@php
+use App\Models\Panier;
+
+    if (!isset($_COOKIE['panier']))
+        {
+        $identifiants=Str::uuid();
+        setcookie('panier',$identifiants, time() + (86400 * 30), "/"); //name,value,time,url      
+        }else{
+            $identifiants=$_COOKIE['panier'];
+        }
+     
+        $produits=Panier::where('identifiant',$identifiants)->get();
+@endphp
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 
 <head>
     <meta charset="utf-8">
-    <title>Startup - Startup Website Template</title>
+    <title>GROUP-DHOLE</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+	<link href="/images/porte-conteneurs.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,43 +59,45 @@
 
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
-		<nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 ">
-			<a href="index.html" class="navbar-brand p-0 m-0">
+		<nav class="navbar navbar-expand-lg navbar-dark px-4 py-3 py-lg-0 ">
+			<a href="/" class="navbar-brand p-0 m-0">
 				
-				<span class="m-0 d-none d-md-flex d-sm-flex "><img class="w-50" src="/images/logo1.png" alt="" ></span>
+				<span class="m-0 d-none d-md-flex d-sm-flex "><img class="w-50" src="/images/logo4.png" alt="" style="100px;" ></span>
 				<span class="m-0 d-md-none d-sm-none"><img class="" style="width: 100px;" src="/images/logo1.png" alt="" ></span>
 			   
 			</a>
-			<a href="" style="position: relative;" class="d-md-none d-sm-none">
-				<div class="rounded-circle d-flex text-center justify-content-center align-items-center" style="background-color:blue;color:white;width:20px;height:20px;position: absolute;top:-10px;left:32px;">1</div>
-				<img src="/images/panier.png" alt="">
+			<a href="/shop/kori" style="position: relative;" class="d-md-none d-sm-none">
+				<div class="rounded-circle d-flex text-center justify-content-center align-items-center" style="background-color:blue;color:white;width:20px;height:20px;position: absolute;top:-10px;left:32px;">{{$produits->count()}}</div>
+				<img src="/images/panier.png" alt="" href="/shop/kori">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
 				<span class="fa fa-bars"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto py-0">
-					<a href="/" class="nav-item nav-link ">Tervetuloa</a>
-					<a href="/shop" class="nav-item nav-link active">konttikauppa</a>
+					<a href="/" class="nav-item nav-link" style="font-size: 16px;">Tervetuloa</a>
+					<a href="/shop" class="nav-item nav-link  active " style="font-size: 16px;">konttikauppa</a>
 				  
-					<a href="/shop_bois" class="nav-item nav-link">Polttopuukauppa</a>
-					<a href="/heistä" class="nav-item nav-link">Noin</a>
+					<a href="/shop_bois" class="nav-item nav-link" style="font-size: 16px;">Polttopuukauppa</a>
+					<a href="/heistä" class="nav-item nav-link" style="font-size: 16px;">Noin</a>
 				  
-					<a href="/todistus" class="nav-item nav-link">Todistus</a>
-					<a href="/ottaa_yhteyttä" class="nav-item nav-link">Ottaa yhteyttä</a>
+					<a href="/todistus" class="nav-item nav-link" style="font-size: 16px;">Todistus</a>
+					<a href="/ottaa_yhteyttä" class="nav-item nav-link" style="font-size: 16px;">yhteyttä </a>
+				   
 				</div>
 			
-				<butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal">
+				<butaton type="button" class="btn text-primary ms-3" >
 	
-					<a href="#searchModal" style="position: relative;" class="">
-						<div class="rounded-circle d-flex text-center justify-content-center align-items-center" style="background-color:blue;color:white;width:20px;height:20px;position: absolute;top:-10px;left:32px;">1</div>
-						<img src="/images/panier.png" alt="" href="#searchModal">
+					<a href="/shop/kori" style="position: relative;" class="">
+						<div class="rounded-circle d-flex text-center justify-content-center align-items-center" style="background-color:blue;color:white;width:20px;height:20px;position: absolute;top:-10px;left:32px;">{{$produits->count()}}</div>
+						<img src="/images/panier.png" alt="" href="/shop/kori">
 					</a>
 					
 				</butaton>
-				<a href="/arvio" class="btn btn-primary py-2 px-4 ms-3">Pyydä tarjous</a>
+				<a href="/arvio" class="btn btn-primary py-2 px-4 ms-3" style="font-size: 16px;">Tarjouspyyntö</a>
 			</div>
 		</nav>
+	
 	
     
         <div class="container-fluid bg-primary py-5 bg-header" style="">
@@ -140,16 +155,17 @@
     						<h3><a href="">vakiosäiliö (kuiva)</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc">€8000.00</span><span class="p-1"></span><span class="price-sale ml-2">€5600.95</span></p>
+		    						<p class="price"><span class="mr-2 price-dc">€8000.00</span><span class="p-1"></span><span class="price-sale ml-2">€7000</span></p>
 		    					</div>
 	    					</div>
 	    					<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center ">
+	    							<a href="/shop/20/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center ">
 	    								
+										<img src="images/bar.png" alt="">
 										
 	    							</a>
-	    							<a href="/shop/20/jalkaa" class="buy-now d-flex justify-content-center align-items-center mx-1 AJ1">
+	    							<a href="/ajout/3" class="buy-now d-flex justify-content-center align-items-center mx-1 AJ1">
 	    								
 										<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
@@ -176,10 +192,10 @@
 	    					</div>
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/10/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/10/jalkaa" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/1" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -192,22 +208,22 @@
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/8/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="images/8piedss.jpg" alt="Colorlib Template"style="min-height: 190px;" >
+    					<a href="/shop/product" class="img-prod border-bottom"><img class="img-fluid" src="images/8piedss.jpg" alt="Colorlib Template"style="min-height: 190px;" >
 	    					<div class="overlay"></div>
 	    				</a>
     					<div class="text py-3 pb-4 px-3 text-center">
     						<h3><a >8 Jalkaa</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>€2300</span></p>
+		    						<p class="price"><span>€1300</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/8/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/8/jalkaa" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/2" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -232,10 +248,10 @@
 	    					</div>
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/15/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/15/jalkaa" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/12" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -263,13 +279,13 @@
 	    					</div>
 	    					<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/20/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/20/jalkaa" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/3" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
-	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
+	    							<a class="heart d-flex justify-content-center align-items-center ">
 	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
@@ -291,10 +307,10 @@
 	    					</div>
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/30/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/30/jalkaa" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/13" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -319,10 +335,10 @@
 	    					</div>
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/40/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/40/jalkaa" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/4" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -347,10 +363,10 @@
 	    					</div>
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/40/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/40/jalkaa" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/4" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -393,10 +409,10 @@
 	    					</div>
 	    					<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/avoin_yläsäiliö" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/avoin_yläsäiliö" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/14" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -423,10 +439,10 @@
 	    					</div>
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/avoin_yläsäiliö" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/avoin_yläsäiliö" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/14" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -531,10 +547,10 @@
 	    					</div>
 	    					<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/säiliökontti" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/15" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -559,10 +575,10 @@
 	    					</div>
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/säiliökontti" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/säiliökontti" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/16" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -587,10 +603,10 @@
 	    					</div>
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/säiliökontti" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/säiliökontti" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/17" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
@@ -615,10 +631,10 @@
 	    					</div>
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
-	    							<a href="" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    							<a href="/shop/säiliökontti" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<img src="images/bar.png" alt="">
 	    							</a>
-	    							<a href="/shop/säiliökontti" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="/ajout/18" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">

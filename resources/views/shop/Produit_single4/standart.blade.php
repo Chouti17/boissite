@@ -1,5 +1,18 @@
+@php
+use App\Models\Panier;
+
+    if (!isset($_COOKIE['panier']))
+        {
+        $identifiants=Str::uuid();
+        setcookie('panier',$identifiants, time() + (86400 * 30), "/"); //name,value,time,url      
+        }else{
+            $identifiants=$_COOKIE['panier'];
+        }
+     
+        $produits=Panier::where('identifiant',$identifiants)->get();
+@endphp
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
     <head>
         <meta charset="utf-8">
         <title>GROUP DHOLE</title>
@@ -8,7 +21,7 @@
         <meta content="Free HTML Templates" name="description">
     
         <!-- Favicon -->
-        <link href="/img/favicon.ico" rel="icon">
+        <link href="/images/porte-conteneurs.png" rel="icon">
     
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
