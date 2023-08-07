@@ -81,3 +81,7 @@ Route::post('/ostaas',[AjoutPpanier::class,'enregistrement'])->name('achats');
 
 Route::get('/lasku',[AjoutPpanier::class,'facture']);
 
+Route::get('/produiits',[AjoutPpanier::class,'aj']);
+Route::post('/produits',[AjoutPpanier::class,'aj1'])->name('aj1');
+
+

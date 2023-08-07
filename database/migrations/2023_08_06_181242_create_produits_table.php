@@ -16,9 +16,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('detail');
             $table->string('image');
-            $table->string('detail1')->nuable();
-            $table->string('detail2')->nuable();
-            $table->string('detail3')->nuable();
+           
             $table->string('prix');
          
             $table->timestamps();

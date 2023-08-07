@@ -13,7 +13,7 @@ use App\Models\Panier;
       $produits = Panier::where('identifiant', $identifiants)
                    ->where('valider', 0)
                    ->get();
-        
+       
 @endphp
 
 
@@ -183,7 +183,7 @@ use App\Models\Panier;
                
               <div class="card">
                 <div class="card-body">
-                  <button type="button" class="btn btn-success btn-block btn-lg">Jatka maksamiseen</button>
+                  <a type="button" class="btn btn-success btn-block btn-lg" href="/ostaa">Jatka maksamiseen</a>
                 </div>
               </div>
       

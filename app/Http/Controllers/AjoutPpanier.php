@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
+use Barryvdh\DomPDF\Pdf;
 
 use Illuminate\Http\Request;
 use App\Models\Panier;
+use App\Models\Produit;
 use App\Models\Client;
 
 class AjoutPpanier extends Controller
@@ -116,16 +118,37 @@ class AjoutPpanier extends Controller
 
         ]);
 
+       
+
+
+
+        $produits = Panier::where('identifiant', $identifiants)
+                        ->where('valider', 0)
+                        ->get();
+        $somme = 0;
+        $livraison = 0;
+        $total=0;
+
+        // Utilisez une boucle foreach pour parcourir les produits et additionner le montant
+       
+
+
+
+
         $facture = Panier::where('identifiant', $identifiants)
                        ->where('valider', 0)
                        ->get();
+                       
+        $client = Client::where('identifiant', $identifiants);
+        
+        app('dompdf.wrapper');
+              
 
-           foreach ($facture as $produit) {
-                        
-                
-                        $produit->valider = 1;
-                        $produit->save();
-         }               
+        return Pdf::loadView ('facture', ['facture' => $facture, 'client' => $client]);   
+
+
+
+                     
 
 
         return view('facture');
@@ -142,6 +165,62 @@ class AjoutPpanier extends Controller
       
 
         return view('facture');
+    }
+    public function index()
+    {
+        $identifiants=$_COOKIE['panier'];
+
+
+
+        $produits = Panier::where('identifiant', $identifiants)
+                        ->where('valider', 0)
+                        ->get();
+        $somme = 0;
+        $livraison = 0;
+        $total=0;
+
+        // Utilisez une boucle foreach pour parcourir les produits et additionner le montant
+        foreach ($produits as $produit) {
+            $mt =$produit->produits->prix * $produit->quantity;
+            
+            $somme += $mt;
+            $livraison +=  $produit->quantity;
+        }
+
+
+
+
+        $facture = Panier::where('identifiant', $identifiants)
+                       ->where('valider', 0)
+                       ->get();
+                       
+        $client = Client::where('identifiant', $identifiants);    
+        $pdf = PDF::loadView('facture', ['facture' => $facture]);          
+
+        return PDF::loadView ('facture', ['facture' => $facture, 'client' => $client,'somme' => $somme,'livraison' => $livraison]);   
+               
+
+
+    }
+
+    public function aj()
+    {
+        return view('aj');
+    }
+
+    public function aj1(Request $request)
+    {
+        Produit::create([
+            
+            'nom'=>$request->nom,
+            'detail'=>$request->detail,
+            'image'=>$request->image,
+            'prix'=>$request->prix,
+           
+
+        ]);
+
+        return view('aj');
     }
    
 }
