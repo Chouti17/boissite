@@ -9,7 +9,9 @@ use App\Models\Panier;
             $identifiants=$_COOKIE['panier'];
         }
      
-        $produits=Panier::where('identifiant',$identifiants)->get();
+      $produits = Panier::where('identifiant', $identifiants)
+                   ->where('valider', 0)
+                   ->get();
 @endphp
 <!DOCTYPE html>
 <html lang="fi">
@@ -228,17 +230,9 @@ use App\Models\Panier;
 
 
             </div>
-            <div class="mb-2 mx-4">  <h3 class="text-primary">8000€ - 10000€ HT</h3></div>
+            <div class="mb-2 mx-4">  <h3 class="text-primary"> 10000€ HT</h3></div>
 
-            <div class="mx-4">
-                
-                    <ul>
-                           <li><span class="text-primary">Yhdeksän: </span>8000€</li>
-                           <li><span class="text-primary">Rilaisuus: </span>10000€</li>
-                     </ul>     
-       
-                 
-            </div>
+           
 
             <p class="mx-4">Tavallinen 40 jalan kontti
                 Tavallinen 40 jalan konttimme on yksi suosituimmista. Siinä on kiinteä puulattia ja CSC-sertifioitu, joten se on valmis intermodaalisiin seikkailuihin. Älä aio mennä minnekään. Tavallinen 40 jalan konttimme täyttää tehtävänsä, olipa kyseessä kuljetus tai varastointi paikan päällä.
@@ -255,39 +249,33 @@ use App\Models\Panier;
 
             </p>
 
-            <form action="" method="post">
+            <form action="{{route('Ajoutp')}}" method="post">
                 @csrf
                 @method('post')
 
-
+                
               
                 
-                    <div class="col-3 mx-4">
-                        <p class="text-primary text-uppercase">Osavaltio</p>
-            
-                        <select name="" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
+                <select name="id" id="" class="form-control px-4 d-none" style="background-color: white; witdh:100px;">
                           
-                          <option value="Valkoinen"> Yhdeksän</option>
-                          <option value="Vihreä">Rilaisuus</option>
-                         
-    
-                     
-                        </select>
-                    </div>   
-                 
+                    <option value="4"> </option>
                 
+                   
 
+               
+                  </select>
                 
-          <div class="col-4 mx-4 mt-2">
-              <p class="text-primary text-uppercase">Määriä</p>
-              <input type="number" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
-          </div>
+                    <div class="col-4 mx-4 mt-2">
+                        <p class="text-primary text-uppercase">Määriä</p>
+                        <input type="number" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+                    </div>
 
-         <div class="col-4 mx-4 mt-2">
-          <button type="submit" class="p-3 border" style="background-color: #F49122;color:white;" >Hanki tarjoukseni </button>
-         </div>
+                    <div class="col-4 mx-4 mt-2">
+                    <button type="submit" class="p-3 border" style="background-color: #F49122;color:white;" >Hanki tarjoukseni</button>
+                    </div>
 
             </form>
+            
             
              
 

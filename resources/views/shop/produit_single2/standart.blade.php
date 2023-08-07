@@ -252,31 +252,27 @@
 
             </p>
 
-            <form action="" method="post">
+            <form action="{{route('Ajoutp')}}" method="post">
                 @csrf
                 @method('post')
 
-
+                
               
-                
-                    <div class="col-3 mx-4">
-                        <p class="text-primary text-uppercase">Konttityyppi</p>
-            
-                        <select name="" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
-                          
-                          <option value="10 jalkaa"> 10 jalkaa</option>
-                        >
-                          <option value="20 jalkaa"> 20 jalkaa</option>
-                         
-                          <option value="40 jalkaa"> 40 jalkaa</option>
-                         
-    
+                <div class="col-3 mx-4">
+                    <p class="text-primary text-uppercase">Konttityyppi</p>
+        
+                    <select name="" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
+                      
+                      <option value="1011"> 10 jalkaa</option>
                      
-                        </select>
-                    </div>   
-                 
-                
+                      <option value="2011 "> 20 jalkaa</option>
+                    
+                      <option value="4011"> 40 jalkaa</option>
+                     
 
+                 
+                    </select>
+                </div>   
                 
           <div class="col-4 mx-4 mt-2">
               <p class="text-primary text-uppercase">Määriä</p>
@@ -284,11 +280,10 @@
           </div>
 
          <div class="col-4 mx-4 mt-2">
-          <button type="submit" class="p-3 border" style="background-color: #F49122;color:white;" >Hanki tarjoukseni </button>
+          <button type="submit" class="p-3 border" style="background-color: #F49122;color:white;" >Hanki tarjoukseni</button>
          </div>
 
             </form>
-            
              
 
         </div>

@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('paniers', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('identifiant');
-            $table->bigInteger('id_produit')->references('id')->on('produits');
-            $table->string('quantity')->default('1');
-            $table->boolean('valider')->default(false);
+            $table->string('identifiants');
+            $table->string('nom');
+            $table->string('prenom');
+            $table->string('email');
+            $table->string('civility');
+            $table->string('telephone');
+            $table->string('addresse');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('paniers');
+        Schema::dropIfExists('clients');
     }
 };

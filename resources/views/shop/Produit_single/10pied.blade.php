@@ -9,7 +9,9 @@ use App\Models\Panier;
             $identifiants=$_COOKIE['panier'];
         }
      
-        $produits=Panier::where('identifiant',$identifiants)->get();
+      $produits = Panier::where('identifiant', $identifiants)
+                   ->where('valider', 0)
+                   ->get();
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -219,17 +221,9 @@ use App\Models\Panier;
 
 
             </div>
-            <div class="mb-2 mx-4">  <h3 class="text-primary">1990€ - 3000€ HT</h3></div>
+            <div class="mb-2 mx-4">  <h3 class="text-primary"> 3000€ HT</h3></div>
 
-            <div class="mx-4">
-                
-                    <ul>
-                           <li><span class="text-primary">Yhdeksän: </span>3000€</li>
-                           <li><span class="text-primary">Rilaisuus: </span>1990€</li>
-                     </ul>     
-       
-                 
-            </div>
+            
 
             <p class="mx-4">
                 10 jalan kontti on säilytyssäiliö, jonka mitat mahdollistavat turvallisen säilytyslaatikon luomisen pieneen tilaan. 10 jalan kontin tilavuus on 10 m3. Sen paino on 825 kg. Mahdollisuus hankkia se uutena ja käytettynä
@@ -245,24 +239,21 @@ use App\Models\Panier;
 
             </p>
 
-            <form action="" method="post">
+            <form action="{{route('Ajoutp')}}" method="post">
                 @csrf
                 @method('post')
 
                 
-                <div class="col-3 mx-4">
-                    <p class="text-primary text-uppercase">Osavaltio</p>
-        
-                    <select name="" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
-                      
-                      <option value="Valkoinen"> Yhdeksän</option>
-                      <option value="Vihreä">Rilaisuus</option>
-                     
+              
+                
+                <select name="id" id="" class="form-control px-4 d-none" style="background-color: white; witdh:100px;">
+                          
+                    <option value="1"> </option>
+                
+                   
 
-                 
-                    </select>
-                </div>   
-
+               
+                  </select>
                 
           <div class="col-4 mx-4 mt-2">
               <p class="text-primary text-uppercase">Määriä</p>

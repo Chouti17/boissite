@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
     <head>
     <meta charset="utf-8">
     <title>GROUP-DHOLE</title>
@@ -42,8 +42,8 @@
                     <div class="p-3" style="max-width: 700px;">
                         <h5 class="text-white text-uppercase mb-3 animated slideInDown">Täydellinen säilytysratkaisu</h5>
                         <h1 class="display-1 text-white mb-md-4 animated zoomIn">Monikäyttöiset ja kestävät säilytysratkaisut</h1>
-                        <a href="quote.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">ota selvää</a>
-                        <a href="" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Pyydä tarjous</a>
+                        <a href="/ottaa_yhteyttä" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">ota selvää</a>
+                        <a href="/arvio" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Pyydä tarjous</a>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                     <div class="p-3" style="max-width: 900px;">
                         <h5 class="text-white text-uppercase mb-3 animated slideInDown">Polttopuu, joka tekee kaiken eron</h5>
                         <h1 class="display-1 text-white mb-md-4 animated zoomIn">Lämmitä takkasi kuivilla, polttovalmiilla polttopuillamme</h1>
-                        <a href="quote.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">ota selvää</a>
+                        <a href="/ottaa_yhteyttä" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">ota selvää</a>
                         <a href="" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Pyydä tarjous</a>
                     </div>
                 </div>

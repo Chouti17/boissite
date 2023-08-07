@@ -9,7 +9,9 @@ use App\Models\Panier;
             $identifiants=$_COOKIE['panier'];
         }
      
-        $produits=Panier::where('identifiant',$identifiants)->get();
+      $produits = Panier::where('identifiant', $identifiants)
+                   ->where('valider', 0)
+                   ->get();
 @endphp
 <!DOCTYPE html>
 <html lang="fi">
@@ -256,36 +258,30 @@ use App\Models\Panier;
                  
             </div>
 
-            <p class="mx-4">
             
 
-            </p>
-
-            <form action="" method="post">
+            <form action="{{route('Ajoutp')}}" method="post">
                 @csrf
                 @method('post')
 
-
+                
               
-                
-                    <div class="col-3 mx-4">
-                        <p class="text-primary text-uppercase">Konttityyppi</p>
+                <div class="col-3 mx-4">
+                    <p class="text-primary text-uppercase">Konttityyppi</p>
+        
+                    <select name="" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
+                      
+                      <option value="2020"> 20 jalkaa</option>
             
-                        <select name="" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
-                          
-                          <option value="10 jalkaa"> 20 jalkaa</option>
-                        
-                  
-                         
-                          <option value="40 jalkaa"> 40 jalkaa</option>
-                         
-    
+              
                      
-                        </select>
-                    </div>   
-                 
-                
+                      <option value="4040"> 40 jalkaa</option>
+                     
 
+                 
+                    </select>
+                </div>   
+             
                 
           <div class="col-4 mx-4 mt-2">
               <p class="text-primary text-uppercase">Määriä</p>
@@ -293,7 +289,7 @@ use App\Models\Panier;
           </div>
 
          <div class="col-4 mx-4 mt-2">
-          <button type="submit" class="p-3 border" style="background-color: #F49122;color:white;" >Hanki tarjoukseni </button>
+          <button type="submit" class="p-3 border" style="background-color: #F49122;color:white;" >Hanki tarjoukseni</button>
          </div>
 
             </form>

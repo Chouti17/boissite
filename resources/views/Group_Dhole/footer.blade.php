@@ -53,25 +53,25 @@
                             <h3 class="text-light mb-0">Pikalinkit</h3>
                         </div>
                         <div class="link-animated d-flex flex-column justify-content-start">
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
-                            <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                            <a class="text-light mb-2" href="/"><i class="bi bi-arrow-right text-primary me-2"></i>Koti</a>
+                            <a class="text-light mb-2" href="/heistä"><i class="bi bi-arrow-right text-primary me-2"></i>Meistä</a>
+                            <a class="text-light mb-2" href="/shop"><i class="bi bi-arrow-right text-primary me-2"></i> konttikauppa</a>
+                            <a class="text-light mb-2" href="/shop_bois"><i class="bi bi-arrow-right text-primary me-2"></i>Polttopuukauppa</a>
+                            <a class="text-light mb-2" href="/todistus"><i class="bi bi-arrow-right text-primary me-2"></i>Todistus</a>
+                            <a class="text-light" href="/ottaa_yhteyttä"><i class="bi bi-arrow-right text-primary me-2"></i>Ota meihin yhteyttä</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                            <h3 class="text-light mb-0">Popular Links</h3>
+                            <h3 class="text-light mb-0">Suosittuja linkkejä</h3>
                         </div>
                         <div class="link-animated d-flex flex-column justify-content-start">
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
-                            <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                            <a class="text-light mb-2" href="/shop/10/jalkaa"><i class="bi bi-arrow-right text-primary me-2"></i>10′ Uusi</a>
+                            <a class="text-light mb-2" href="/shop/20/jalkaa"><i class="bi bi-arrow-right text-primary me-2"></i>20′ Uusi</a>
+                            <a class="text-light mb-2" href="/shop/40/jalkaa"><i class="bi bi-arrow-right text-primary me-2"></i>40' Ussi</a>
+                            <a class="text-light mb-2" href="/shop/puun"><i class="bi bi-arrow-right text-primary me-2"></i> 70 pussi</a>
+                            <a class="text-light mb-2" href="/shop/88_pussia"><i class="bi bi-arrow-right text-primary me-2"></i>88 pussia</a>
+                            <a class="text-light" href="/shop/koko_lava_koivupuuta"><i class="bi bi-arrow-right text-primary me-2"></i>Puubriketti LP </a>
                         </div>
                     </div>
                 </div>

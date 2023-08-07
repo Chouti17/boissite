@@ -9,7 +9,9 @@ use App\Models\Panier;
             $identifiants=$_COOKIE['panier'];
         }
      
-        $produits=Panier::where('identifiant',$identifiants)->get();
+      $produits = Panier::where('identifiant', $identifiants)
+                   ->where('valider', 0)
+                   ->get();
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -237,28 +239,35 @@ use App\Models\Panier;
                 </p>
 
 
-               
-
-            <form action="" method="post">
-                @csrf
-                @method('post')
-
-
-                
-                 
-                
-
-                
+                <form action="{{route('Ajoutp')}}" method="post">
+                    @csrf
+                    @method('post')
+    
+                    
+                  
+                    
+                    <select name="id" id="" class="form-control px-4 d-none" style="background-color: white; witdh:100px;">
+                              
+                        <option value="29"> </option>
+                    
+                       
+    
+                   
+                      </select>
+                    
+                    <div class="col-4 mx-4 mt-2">
+                        <p class="text-primary text-uppercase">Määriä</p>
+                        <input type="number" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+                    </div>
+                    <div class="col-4 mx-4 mt-2">
+                        <button type="submit" class="p-3 border" style="background-color: #F49122;color:white;" >Hanki tarjoukseni</button>
+                    </div>
+    
+                    </form>
           <div class="col-4 mx-4 mt-2">
               <p class="text-primary text-uppercase">Määriä</p>
               <input type="number" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
           </div>
-
-         <div class="col-4 mx-4 mt-2">
-          <button type="submit" class="p-3 border" style="background-color: #F49122;color:white;" >Hanki tarjoukseni </button>
-         </div>
-
-            </form>
             
              
 

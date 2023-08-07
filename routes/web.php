@@ -70,3 +70,14 @@ Route::get('/cookies/{id}',[Cookie::class,'setcookie']);
 Route::get('/cook',[Cookie::class,'del']);
 
 Route::get('/ajout/{id}',[AjoutPpanier::class,'Ajout']);
+
+Route::post('/kori',[AjoutPpanier::class,'Ajoutproduit'])->name('Ajoutp');
+Route::get('/kori/{id}',[AjoutPpanier::class,'delete'])->name('Ajoutp1');
+Route::get('/koris/{id}',[AjoutPpanier::class,'Ajoutq'])->name('Ajoutp2');
+Route::get('/korie/{id}',[AjoutPpanier::class,'Rq'])->name('Ajoutp2');
+
+Route::get('/ostaa',[AjoutPpanier::class,'enregistrements']);
+Route::post('/ostaas',[AjoutPpanier::class,'enregistrement'])->name('achats');
+
+Route::get('/lasku',[AjoutPpanier::class,'facture']);
+
