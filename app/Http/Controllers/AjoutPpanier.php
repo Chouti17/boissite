@@ -25,7 +25,7 @@ class AjoutPpanier extends Controller
        
      }
 
-    public function ajout($id,Request $request)
+    public function Ajout($id,Request $request)
     {
         
         
@@ -33,7 +33,8 @@ class AjoutPpanier extends Controller
         {
         $identifiants=Str::uuid();
         setcookie('panier',$identifiants, time() + (86400 * 30), "/"); //name,value,time,url      
-        }else{
+        }
+        else{
             $identifiants=$_COOKIE['panier'];
         }
 

@@ -467,7 +467,7 @@ use App\Models\Panier;
 
     
 
-   
+    @include('Group_Dhole.footer')
 
 </body>
 </html>

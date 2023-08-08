@@ -84,7 +84,7 @@ Route::get('/lasku',[AjoutPpanier::class,'facture']);
 
 Route::get('/produiits',[AjoutPpanier::class,'aj']);
 
-Route::get('/',[AjoutPpanier::class,'aj2'])->name('fin');
+Route::get('/oppu',[AjoutPpanier::class,'aj2'])->name('fin');
 Route::post('/produits',[AjoutPpanier::class,'aj1'])->name('aj1');
 
 Route::controller(PDFController::class)->group(function()
