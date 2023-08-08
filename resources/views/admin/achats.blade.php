@@ -58,7 +58,7 @@ $clients = Client::all();
                 <li>Nom:{{$client->nom}}</li>
                 <li>prenom: {{$client->prenom}}</li>
                 <li>email: {{$client->email}}</li>
-                <li>address: {{$client->address}}</li>
+                <li>address: {{$client->addresse}}</li>
               
             </ul>
             @php
@@ -72,7 +72,7 @@ $clients = Client::all();
 
                 
                 <ul>
-                    <li>produit: {{$paniers->produits->nom}}</li>
+                    <li>produit: {{$paniers->produit->nom}}</li>
                 
                     <li>Quantite:{{$paniers->quantity}}</li>
 
