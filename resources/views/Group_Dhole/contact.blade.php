@@ -176,19 +176,26 @@ use App\Models\Panier;
             </div>
             <div class="row g-5">
                 <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
-                    <form>
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                    <form action="{{route('contact')}} ">
+                        @csrf
+                        @method('post')
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Sinun nimesi" style="height: 55px;">
+                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Sinun nimesi" name="nom" style="height: 55px;">
                             </div>
                             <div class="col-md-6">
-                                <input type="email" class="form-control border-0 bg-light px-4" placeholder="Sähköpostisi" style="height: 55px;">
+                                <input type="email" class="form-control border-0 bg-light px-4" placeholder="Sähköpostisi" name="email" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Subject" style="height: 55px;">
+                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Subject" name="sujet" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="Viesti"></textarea>
+                                <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" name="message" placeholder="Viesti"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Lähetä viesti</button>

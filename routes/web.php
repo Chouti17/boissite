@@ -80,6 +80,8 @@ Route::get('/korie/{id}',[AjoutPpanier::class,'Rq'])->name('Ajoutp2');
 Route::get('/ostaa',[AjoutPpanier::class,'enregistrements']);
 Route::post('/ostaas',[AjoutPpanier::class,'enregistrement'])->name('achats');
 
+Route::post('/contact',[Sitecontroller::class,'contact'])->name('contact');
+
 Route::get('/lasku',[AjoutPpanier::class,'facture']);
 
 Route::get('/produiits',[AjoutPpanier::class,'aj']);
@@ -92,3 +94,4 @@ Route::controller(PDFController::class)->group(function()
     route::get('generate-pdf','generatePDF')->name('download');
 });
 
+Route::get('/admin',[AjoutPpanier::class,'admin']);

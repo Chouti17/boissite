@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Panier;
+use App\Models\Contact;
 
 
 class Sitecontroller extends Controller
@@ -154,6 +155,20 @@ class Sitecontroller extends Controller
     public function arvio()
     {
         return view('Group_Dhole.devis');
+    }
+
+    public function contact(Request $request)
+    {
+        contact::create([
+            'nom'=>$request->nom,
+            'sujet'=>$request->sujet,
+            'message'=>$request->message,
+            'email'=>$request->email,
+        ]);
+
+        redirect()->route('contactt')->with('success', 'Pyyntösi on lähetetty onnistuneesti!');
+
+        
     }
     
    

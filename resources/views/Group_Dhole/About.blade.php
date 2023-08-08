@@ -192,7 +192,7 @@ Uskomme läpinäkyvyyteen ja avoimeen viestintään asiakkaidemme kanssa. Tyytyv
 
 
     <div class="container justify-content-center  ">
-        <h5>
+        <h5 class="mb-4" style="font-size: 16px;">
             Group-Dhole on vuosikymmenen ajan sitoutunut tarjoamaan asiakkaillemme poikkeuksellisen palvelukokemuksen, nopean toimituksen ja vertaansa vailla olevan asiakastuen. Sitoutumisemme asiakkaiden luottamukseen ja tyytyväisyyteen on ollut menestyksemme ja jatkuvan kasvumme kulmakivi. Sallikaa meidän esitellä teille matkamme näiden 10 vuoden aikana, jota leimaavat kiinteät arvot ja horjumaton omistautuminen.
             <ul>
                 <li> <span class="text-primary">Nopea ja luotettava toimitus:</span>
@@ -243,7 +243,7 @@ Uskomme läpinäkyvyyteen ja avoimeen viestintään asiakkaidemme kanssa. Tyytyv
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="">
                 <h5 class="fw-bold text-primary text-uppercase">RYHMÄN JÄSENET</h5>
-                <p class="mb-0">
+                <p class="mb-0" style="text-align: start;font-size:16px;">
                     Tiimimme on sitoutunut rakkaudella, intohimolla ja omistautumisella teidän puolellenne, rakkaat asiakkaat. Jokaista jäsentä ohjaa aito intohimo toimintaamme kohtaan, ja päätavoitteemme on tarjota sinulle poikkeuksellista palvelua ja unohtumaton asiakaskokemus.
 
 Uskomme vahvasti sitoutumisen arvoon asiakkaillemme. Pyrimme joka päivä rakentamaan kanssasi vahvoja suhteita, ymmärtämään tarpeitasi ja ylittämään odotuksesi. Tyytyväisyytesi on suurin palkintomme, ja teemme kaikkemme tarjotaksemme sinulle henkilökohtaista ja huomaavaista palvelua.

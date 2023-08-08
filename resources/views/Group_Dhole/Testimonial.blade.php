@@ -67,7 +67,7 @@ use App\Models\Panier;
 
     <div class="container-fluid mt-4 d-flex justify-content-center ">
        
-        <h5> on luottamuksen ja ammattitaidon ruumiillistuma. Sitoutumisemme laatuun ja asiakastyytyväisyyteen on horjumatonta. Pidämme kunnia-asiana tarjota huippulaatuisia tuotteita ja palveluita sovittuja määräaikoja noudattaen. Tarjoamamme tiimi on aina valmis vastaamaan erityistarpeisiisi ja toivottamaan sinut tervetulleeksi
+        <h5 style="font-size:16px;"> on luottamuksen ja ammattitaidon ruumiillistuma. Sitoutumisemme laatuun ja asiakastyytyväisyyteen on horjumatonta. Pidämme kunnia-asiana tarjota huippulaatuisia tuotteita ja palveluita sovittuja määräaikoja noudattaen. Tarjoamamme tiimi on aina valmis vastaamaan erityistarpeisiisi ja toivottamaan sinut tervetulleeksi
         Droup-Dhole on vuosikymmenen ajan sitoutunut tarjoamaan asiakkaillemme poikkeuksellisen palvelukokemuksen, nopean toimituksen ja vertaansa vailla olevan asiakastuen. Sitoutumisemme asiakkaiden luottamukseen ja tyytyväisyyteen on ollut menestyksemme ja jatkuvan kasvumme kulmakivi.
         </h5>
     </div>
@@ -75,10 +75,10 @@ use App\Models\Panier;
     <div class="container-fluid pt-5">
         <div class="container">
           <div class="text-center pb-2">
-            <p class="section-title px-5">
-              <h1 class="px-2">Asiakkaamme</h1>
+            <p class="section-titles px-5">
+              <h1 class="px-2" style="font-size: 18px;">Asiakkaamme</h1>
             </p>
-            <h3 class="mb-4">Onnellisia, he suosittelivat meitä ja päättivät todistaa, GROUP-DHOLE kiittää heitä jälleen..</h3>
+            <h3 class="mb-4" style="font-size: 16px;">Onnellisia, he suosittelivat meitä ja päättivät todistaa, GROUP-DHOLE kiittää heitä jälleen..</h3>
           </div>
           <div class="row">
             <div class="col-lg-4 mb-5">
@@ -148,7 +148,7 @@ use App\Models\Panier;
                   </div>
                 
                
-                <a href="" class="btn rounded px-4 mx-auto mb-4" style="background-color: #F49122;color:white;">Je faire ma demande</a>
+                <a href="/shop" class="btn rounded px-4 mx-auto mb-4" style="background-color: #F49122;color:white;">Mennä kauppaan</a>
             </div>
              
             </div>
@@ -190,14 +190,14 @@ use App\Models\Panier;
 
                    </div>
                 </div>
-                <a href="" class="btn rounded  px-4 mx-auto mb-4" style="background-color: #F49122;color:white;">Je faire ma demande</a>
+                <a href="/shop" class="btn rounded  px-4 mx-auto mb-4" style="background-color: #F49122;color:white;">Mennä kauppaan</a>
               </div>
             </div>
           </div>
         </div>
      </div>
      <div class="container-fluid  justify-content-center align-items-center">
-        <h5>
+        <h5 style="font-size:16px;">
             Olemme luotettavia, ja kehotamme sinua tekemään tilauksesi tai kertomaan meille erilaisista ehdotuksistasi.
 
 Meille luottamus on kaiken toimintamme ytimessä. Sitoutumisemme laadukkaaseen palveluun, luotettavaan toimitukseen ja poikkeukselliseen asiakastukeen on horjumaton. Teemme parhaamme tarjotaksemme sinulle saumattoman ostokokemuksen ja vastataksemme tarpeisiisi parhaalla mahdollisella tavalla.
