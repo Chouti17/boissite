@@ -157,12 +157,11 @@ class AjoutPpanier extends Controller
     {    $identifiants=$_COOKIE['panier'];
         $client = Client::where('identifiant', $identifiants); 
 
-        if(is_null($client))
-        {
+        
+      
             return view('achats'); 
-        }
+   
 
-        return view('facture');
 
        
     }
