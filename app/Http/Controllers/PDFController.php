@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Elibyy\TCPDF\Facades\TCPDF;
+
 use App\Models\Panier;
 use App\Models\Produit;
 use App\Models\Client;
