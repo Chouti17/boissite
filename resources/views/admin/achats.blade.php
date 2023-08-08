@@ -72,7 +72,7 @@ $clients = Client::all();
 
                 
                 <ul>
-                    <li>produit: {{$paniers->produit->nom}}</li>
+                    
                 
                     <li>Quantite:{{$paniers->quantity}}</li>
 
@@ -80,9 +80,11 @@ $clients = Client::all();
         
             @endforeach
 
+            </div>
+
             @endforeach
 
-           </div>
+           
             
              
             
