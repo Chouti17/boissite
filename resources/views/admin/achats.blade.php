@@ -53,7 +53,7 @@ $clients = Client::all();
 
             <h1>Liste des demande </h1>
             @foreach ($clients as $client)
-            <div class="shadow m-4 col-4 d-flex flex-row justify-content-between flex-wrap">
+            <div class="shadow m-4 col-4  ">
             <ul>
                 <li>Nom:{{$client->nom}}</li>
                 <li>prenom: {{$client->prenom}}</li>
