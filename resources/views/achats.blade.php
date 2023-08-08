@@ -110,7 +110,7 @@
                                                 required id="pays" name="pays"
                                                 aria-label="Default select example" value={{ old('pays') }}>
 
-                                                <option value="France">Filande </option>
+                                                <option value="France">Finlande </option>
 
                                                ption value="Algerie">Algerie </option>
                                                 <option value="Allemagne">Allemagne </option>
