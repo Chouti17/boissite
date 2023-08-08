@@ -165,7 +165,7 @@ use App\Models\Client;
 
         <div class="container-fluid d-flex " style="display:flex;flex-direction:row;margin-top:20px;">
             
-            <a href="{{route('fin')}}" class="btn btn-primary" style="margin-bottom:20px;">Takaisin kotiin</a>
+            <a href="{{route('fin')}}" class="btn btn-primary" style="margin-bottom:20px;">Vahvista laskuni</a>
         </div>
         <div class="d-flex " style="width: 100%;margin-top:20px;">
         <p style="font-size:13px;">

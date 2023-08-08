@@ -54,13 +54,7 @@ $clients = Client::all();
             <h1>Liste des demande </h1>
             @foreach ($clients as $client)
             <div class="shadow m-4 col-4  ">
-            <ul>
-                <li>Nom:{{$client->nom}}</li>
-                <li>prenom: {{$client->prenom}}</li>
-                <li>email: {{$client->email}}</li>
-                <li>address: {{$client->addresse}}</li>
-              
-            </ul>
+          
             @php
   
             $panier=Panier::where('identifiant',$client->identifiants)->where('valider',1)->get();
@@ -70,6 +64,13 @@ $clients = Client::all();
 
             @foreach($panier as $paniers)
 
+                <ul>
+                    <li>Nom:{{$client->nom}}</li>
+                    <li>prenom: {{$client->prenom}}</li>
+                    <li>email: {{$client->email}}</li>
+                    <li>address: {{$client->addresse}}</li>
+                
+                </ul>
                 
                 <ul>
                     <li>produit: {{$paniers->produit->nom}}</li>
