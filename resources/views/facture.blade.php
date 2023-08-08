@@ -93,35 +93,41 @@ use App\Models\Client;
                 <p style="font-size: 10px;margin:0;padding:0;">{{$client->nom  }}</p>
                 <p style="font-size: 10px;margin:0;padding:0;">{{$client->addresse}}</p>
                 <p style="font-size: 10px;margin:0;padding:0;">{{$client->email}}</p>
-                <p style="font-size: 10px;margin:0;padding:0;">+{{$client->telephone}}</p>
+                <p style="font-size: 10px;margin:0;padding:0;">+{{$client->addresse}}</p>
              
              </div>
             <div class="col-6 " style=" text-align:right;">
 
                 <p style="font-size: 16px;margin:0;padding:0;">Toimitusosoite</p>
-                <p style="font-size: 12px;margin:0;padding:0;">{{$client->email}}</p>
+                <p style="font-size: 12px;margin:0;padding:0;">{{$client->addresse}}</p>
                
             </div>
         </div>
         <div class="d-flex col-12 " style="width: 100%;margin-top:20px;">
             <table style="width: 100%;">
+                
                 <thead style="width: 100%" >
+                    
                     <tr style="background-color:rgba(212, 207, 207, 0.798); ">
-                        <th>kohde ja kuvaus</th>
-                        <th>Vaadittu määrä</th>
-                        <th>Yksikköhinta</th>
-                        <th style="text-align:right;"> määrä(€)</th>
+                        <th  style="font-size: 13px; font-weight:300; color:black;">kohde ja kuvaus</th>
+                        <th style="font-size: 13px; font-weight:300; color:black;">Vaadittu määrä</th>
+                        <th style="font-size: 13px; font-weight:300; color:black;">Yksikköhinta</th>
+                        <th  style="font-size: 13px; font-weight:300; color:black;text-align:right;"> määrä(€)</th>
                         
                     </tr>
+
+                     
                 </thead>
+
+                
                 <tbody >
                     
                     @foreach ($panier as $produit)
                     <tr class="justify-between">
-                        <td>{{ $produit->produit->nom }}</td>
-                        <td>{{ $produit->quantity }}</td>
-                        <td>{{ $produit->produit->prix}}€</td>
-                        <td style="text-align:right;">{{ $produit->produit->prix*$produit->quantity }}€</td>
+                        <td style="font-size: 13px;">{{ $produit->produit->nom }}</td>
+                        <td style="font-size: 13px;">{{ $produit->quantity }}</td>
+                        <td style="font-size: 13px;">{{ $produit->produit->prix}}€</td>
+                        <td style="text-align:right;font-size: 13px;">{{ $produit->produit->prix*$produit->quantity }}€</td>
                     </tr>
                   
                     @endforeach
@@ -131,12 +137,12 @@ use App\Models\Client;
                     
                    
                     <tr class="justify-between">
-                        <td> Toimituskulut</td>
-                        <td>  @if($donnees)
+                        <td style="font-size: 13px;"> Toimituskulut</td>
+                        <td style="font-size: 13px;">  @if($donnees)
                             {{$donnees['sommes']}}
                             @endif</td>
-                        <td>300€</td>
-                        <td style="text-align:right;">300€</td>
+                        <td style="font-size: 13px;">300€</td>
+                        <td style="text-align:right;">{{$donnees['sommes'] *300}}€</td>
                     </tr>
 
                     
@@ -145,8 +151,8 @@ use App\Models\Client;
                         
                         <td> </td>
                         <td> </td>
-                        <td style="background-color:#DDD9D9;font-weight:bold;color:black;">Kaikki yhteensä</td>
-                        <td style="text-align:right;background-color:#DDD9D9;color:black;font-weight:bold;">@if($donnees){{$donnees['somme']}}€ @endif</td>
+                        <td style="background-color:#DDD9D9;color:black;font-size:13px;">Kaikki yhteensä</td>
+                        <td style="text-align:right;background-color:#DDD9D9;color:black;font-weight:bold;font-size:16px">@if($donnees){{$donnees['somme']}}€ @endif</td>
                     </tr>
                   
                     
@@ -156,23 +162,25 @@ use App\Models\Client;
             </table>
             
         </div>
-        <div class="d-flex " style="width: 100%;">
-        <p>
+
+        <div class="container-fluid d-flex " style="display:flex;flex-direction:row;margin-top:20px;">
+            
+            <a href="{{route('fin')}}" class="btn btn-primary" style="margin-bottom:20px;">Takaisin kotiin</a>
+        </div>
+        <div class="d-flex " style="width: 100%;margin-top:20px;">
+        <p style="font-size:13px;">
             Tilauksen vahvistus tallettamalla 50% kokonaissummasta. Loput 50% maksetaan toimituksen jälkeen Maksut suoritetaan pankkisiirrolla jäljitettävyyden säilyttämiseksi pankissa
         </p>
         </div>
 
-       <div class="d-flex " style="width: 100%;"> <p class="text-success">Ota kuvakaappaus laskustasi</p></div>
+       <div class="d-flex " style="width: 100%;"> <p class="text-success" style="font-size:13px;">Ota kuvakaappaus laskustasi</p></div>
        
 
-       <div class="d-flex " style="width: 100%;">   <p style="color: black">Edustaja ottaa sinuun yhteyttä sähköpostitse osoitteessa contact@group-dhole viimeistelläkseen transaktiosi. Jos sinulla on kysyttävää, älä epäröi ottaa meihin yhteyttä joko sähköpostitse tai chatin kautta. Group-Dhole -tiimi kiittää sinua.</p>
+       <div class="d-flex " style="width: 100%;">   <p style="color: black;font-size:13px;">Edustaja ottaa sinuun yhteyttä sähköpostitse osoitteessa contact@group-dhole viimeistelläkseen transaktiosi. Jos sinulla on kysyttävää, älä epäröi ottaa meihin yhteyttä joko sähköpostitse tai chatin kautta. Group-Dhole -tiimi kiittää sinua.</p>
        </div>
 
       
-        <div class="container-fluid d-flex " style="display:flex;flex-direction:row;">
-            
-            <a href="{{route('fin')}}" class="btn btn-primary" style="margin-bottom:20px;">Takaisin kotiin</a>
-        </div>
+       
     </div>
     
 </body>
