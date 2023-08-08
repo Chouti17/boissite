@@ -144,7 +144,7 @@ use App\Models\Panier;
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3 mt d-none d-sm-flex d-md-flex">
                       <p class="lead fw-normal mb-2">{{$panier->produit->nom}}</p>
-                      <p><span class="text-muted text-primary">{{$panier->produit->detail}}</span></p>
+                     
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3 mt-2  d-sm-none d-md-none">
                       <p class="lead fw-normal mb-2">{{$panier->produit->nom}}</p>

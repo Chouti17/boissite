@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
-use Barryvdh\DomPDF\Pdf;
+use PDF;
 
 use Illuminate\Http\Request;
 use App\Models\Panier;
@@ -118,40 +118,39 @@ class AjoutPpanier extends Controller
 
         ]);
 
-       
-
 
 
         $produits = Panier::where('identifiant', $identifiants)
                         ->where('valider', 0)
-                        ->get();
-        $somme = 0;
-        $livraison = 0;
-        $total=0;
+                        ->get();  
 
-        // Utilisez une boucle foreach pour parcourir les produits et additionner le montant
+         $somme=0;
+         $sommes=0;
+
+         foreach ($produits as $produit)
+          {
+               $mr=$produit->id_produit;
+              
+               $ms= Produit::where('id',$mr)->first();
+             
+               $mt=$ms->prix * $produit->quantity;
+
+               $somme +=$mt;
+               $sommes +=$produit->quantity;
+                  
+         }  
+                   $somme=$somme + $sommes*300;           
+                   $donnees =['somme'=>$somme,'sommes'=>$sommes];
+
+                   if($request->has('dowload'))
+                   {
+                      $pdf = PDF::loadView('facture',compact('donnees'));
+                      return $pdf->download('facture.pdf');
+                   }          
        
 
 
-
-
-        $facture = Panier::where('identifiant', $identifiants)
-                       ->where('valider', 0)
-                       ->get();
-                       
-        $client = Client::where('identifiant', $identifiants);
-        
-        app('dompdf.wrapper');
-              
-
-        return Pdf::loadView ('facture', ['facture' => $facture, 'client' => $client]);   
-
-
-
-                     
-
-
-        return view('facture');
+        return view('facture', ['donnees' => $donnees]);
     }
     public function enregistrements()
     {
@@ -175,29 +174,14 @@ class AjoutPpanier extends Controller
         $produits = Panier::where('identifiant', $identifiants)
                         ->where('valider', 0)
                         ->get();
-        $somme = 0;
-        $livraison = 0;
-        $total=0;
-
-        // Utilisez une boucle foreach pour parcourir les produits et additionner le montant
-        foreach ($produits as $produit) {
-            $mt =$produit->produits->prix * $produit->quantity;
-            
-            $somme += $mt;
-            $livraison +=  $produit->quantity;
-        }
-
-
-
-
-        $facture = Panier::where('identifiant', $identifiants)
-                       ->where('valider', 0)
-                       ->get();
+    
+       
                        
         $client = Client::where('identifiant', $identifiants);    
-        $pdf = PDF::loadView('facture', ['facture' => $facture]);          
+       
+        
 
-        return PDF::loadView ('facture', ['facture' => $facture, 'client' => $client,'somme' => $somme,'livraison' => $livraison]);   
+       
                
 
 
@@ -221,6 +205,38 @@ class AjoutPpanier extends Controller
         ]);
 
         return view('aj');
+    }
+
+    public function aj2()
+    {
+        $identifiants=$_COOKIE['panier'];
+
+       
+
+
+
+        $produits = Panier::where('identifiant', $identifiants)
+                        ->where('valider', 0)
+                        ->get();  
+
+
+         foreach ($produits as $produit)
+          {
+            $panier = Panier::find($produit->id);
+            $panier->valider = 1;
+            
+            $panier->save();   
+                  
+         }  
+                   
+
+                           
+       
+
+
+        return view('Group_Dhole.page_principal');
+
+        
     }
    
 }

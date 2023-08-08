@@ -78,9 +78,9 @@ use App\Models\Client;
              
              </div>
             <div class="col-6 " style=" text-align:right;">
-                @if($donnees)
-                <h3 style="font-size:18px" >{{$donnees['somme']}}€</h3>
-                @endif
+              
+                <h3 style="font-size:18px" >{!!$somme !!}€</h3>
+                
                
                 <p style="font-size: 12px;margin:0;padding:0;"">Maksajan summa</p>
                
@@ -132,9 +132,9 @@ use App\Models\Client;
                    
                     <tr class="justify-between">
                         <td> Toimituskulut</td>
-                        <td>  @if($donnees)
-                            {{$donnees['sommes']}}
-                            @endif</td>
+                        <td>  
+                            {!!$sommes !!}
+                            </td>
                         <td>300€</td>
                         <td style="text-align:right;">300€</td>
                     </tr>
@@ -146,7 +146,7 @@ use App\Models\Client;
                         <td> </td>
                         <td> </td>
                         <td style="background-color:#DDD9D9;font-weight:bold;color:black;">Kaikki yhteensä</td>
-                        <td style="text-align:right;background-color:#DDD9D9;color:black;font-weight:bold;">@if($donnees){{$donnees['somme']}}€ @endif</td>
+                        <td style="text-align:right;background-color:#DDD9D9;color:black;font-weight:bold;">{!!$somme !!}€</td>
                     </tr>
                   
                     
@@ -156,23 +156,13 @@ use App\Models\Client;
             </table>
             
         </div>
-        <div class="d-flex " style="width: 100%;">
+        <div class="d-flex " style="width: 100%;margin-top:20px;">
         <p>
             Tilauksen vahvistus tallettamalla 50% kokonaissummasta. Loput 50% maksetaan toimituksen jälkeen Maksut suoritetaan pankkisiirrolla jäljitettävyyden säilyttämiseksi pankissa
         </p>
         </div>
 
-       <div class="d-flex " style="width: 100%;"> <p class="text-success">Ota kuvakaappaus laskustasi</p></div>
-       
-
-       <div class="d-flex " style="width: 100%;">   <p style="color: black">Edustaja ottaa sinuun yhteyttä sähköpostitse osoitteessa contact@group-dhole viimeistelläkseen transaktiosi. Jos sinulla on kysyttävää, älä epäröi ottaa meihin yhteyttä joko sähköpostitse tai chatin kautta. Group-Dhole -tiimi kiittää sinua.</p>
-       </div>
-
       
-        <div class="container-fluid d-flex " style="display:flex;flex-direction:row;">
-            
-            <a href="{{route('fin')}}" class="btn btn-primary" style="margin-bottom:20px;">Takaisin kotiin</a>
-        </div>
     </div>
     
 </body>

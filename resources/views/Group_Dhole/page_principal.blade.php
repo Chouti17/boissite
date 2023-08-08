@@ -239,7 +239,7 @@
                         <div class="col-6 py-1 text-right border-right">
                           <strong>Bruttopaino</strong>
                         </div>
-                        <div class="col-6 py-1">10 000 kg</div>
+                        <div class="col-6 py-1">7 000 kg</div>
                       </div>
                       <div class="row border-bottom">
                         <div class="col-6 py-1 text-right border-right">

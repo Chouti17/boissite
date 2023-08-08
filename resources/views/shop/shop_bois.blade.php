@@ -208,7 +208,7 @@ use App\Models\Panier;
                 <ul class="product__item__pic__hover">
                     <li class="sax"><a  ><i class="fa fa-heart "></i></a></li>
                     <li><a href="/shop/88_pussia"><i class="fa fa-bars "></i></a></li>
-                    <li><a href="/ajout/22"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a href="/ajout/7"><i class="fa fa-shopping-cart"></i></a></li>
                 </ul>
             </div>
             <div class="product__item__text text-center">
@@ -467,7 +467,7 @@ use App\Models\Panier;
 
     
 
-    @include('Group_Dhole.footer')
+   
 
 </body>
 </html>

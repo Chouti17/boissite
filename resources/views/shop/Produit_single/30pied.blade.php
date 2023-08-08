@@ -234,7 +234,7 @@ use App\Models\Panier;
              <ul>
                     <li><span class="text-primary">Tilavuus: </span> 33 m3</li>
                     <li><span class="text-primary"> Pinta-ala:</span> 14 m2</li>
-                    <li><span class="text-primary">Rakenne:</span> Täyshitsattu Corten/li>
+                    <li><span class="text-primary">Rakenne:</span> Täyshitsattu Corten</li>
                     <li><span class="text-primary"> Lattia:  </span>9,26 m²</li>
                     <li><span class="text-primary">Rakenne: </span> 28 mm merivaneri</li>
                     <li><span class="text-primary">Haarukan läpikulku:</span>2050 mm</li>

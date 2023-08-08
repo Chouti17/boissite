@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Sitecontroller;
 use App\Http\Controllers\AjoutPpanier;
 use App\Http\Controllers\Cookie;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,12 @@ Route::post('/ostaas',[AjoutPpanier::class,'enregistrement'])->name('achats');
 Route::get('/lasku',[AjoutPpanier::class,'facture']);
 
 Route::get('/produiits',[AjoutPpanier::class,'aj']);
+
+Route::get('/',[AjoutPpanier::class,'aj2'])->name('fin');
 Route::post('/produits',[AjoutPpanier::class,'aj1'])->name('aj1');
 
+Route::controller(PDFController::class)->group(function()
+{
+    route::get('generate-pdf','generatePDF')->name('download');
+});
 
