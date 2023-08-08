@@ -48,7 +48,7 @@ $clients = Client::all();
 <body>
 
     <section>
-        <div class="container-fluid col-12">
+        <div class="container-fluid col-12 d-flex flex-wrap">
 
 
             <h1>Liste des demande </h1>
@@ -72,7 +72,7 @@ $clients = Client::all();
 
                 
                 <ul>
-                    
+                    <li>produit: {{$paniers->produit->nom}}</li>
                 
                     <li>Quantite:{{$paniers->quantity}}</li>
 

@@ -154,10 +154,17 @@ class AjoutPpanier extends Controller
         return view('facture', ['donnees' => $donnees]);
     }
     public function enregistrements()
-    {
-       
+    {    $identifiants=$_COOKIE['panier'];
+        $client = Client::where('identifiant', $identifiants); 
 
-        return view('achats');
+        if(is_null($client))
+        {
+            return view('achats'); 
+        }
+
+        return view('facture');
+
+       
     }
 
     public function facture(Request $request)
