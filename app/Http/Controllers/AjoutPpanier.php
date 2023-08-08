@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
-use PDF;
+
 
 use Illuminate\Http\Request;
 use App\Models\Panier;
