@@ -77,9 +77,9 @@ $clients = Client::all();
                 </ul>
                 
                 <ul>
-                    <li> <span class="success">roduit:</span> {{$paniers->produit->nom}}</li>
+                    <li> <span class="text-success">Produit:</span> {{$paniers->produit->nom}}</li>
                 
-                    <li> <span class="success">Quantite</span>:{{$paniers->quantity}}</li>
+                    <li> <span class="text-success">Quantite</span>:{{$paniers->quantity}}</li>
 
                 </ul>
         
