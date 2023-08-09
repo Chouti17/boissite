@@ -192,7 +192,7 @@ Uskomme läpinäkyvyyteen ja avoimeen viestintään asiakkaidemme kanssa. Tyytyv
 
 
     <div class="container justify-content-center  ">
-        <h5 class="mb-4" style="font-size: 16px;">
+        <h5 class="mb-4" style="font-size: 16px; color:#736e6e">
             Group-Dhole on vuosikymmenen ajan sitoutunut tarjoamaan asiakkaillemme poikkeuksellisen palvelukokemuksen, nopean toimituksen ja vertaansa vailla olevan asiakastuen. Sitoutumisemme asiakkaiden luottamukseen ja tyytyväisyyteen on ollut menestyksemme ja jatkuvan kasvumme kulmakivi. Sallikaa meidän esitellä teille matkamme näiden 10 vuoden aikana, jota leimaavat kiinteät arvot ja horjumaton omistautuminen.
             <ul>
                 <li> <span class="text-primary">Nopea ja luotettava toimitus:</span>
