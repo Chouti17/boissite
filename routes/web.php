@@ -88,7 +88,7 @@ Route::get('/ostaa',[AjoutPpanier::class,'enregistrements']);
 Route::post('/ostaas',[AjoutPpanier::class,'enregistrement'])->name('achats');
 
 Route::get('/admin',[AjoutPpanier::class,'admin']);
-Route::post('/admin',[AjoutPpanier::class,'admin'])->name('achatss');
+Route::post('/admin',[AjoutPpanier::class,'adminn'])->name('achatss');
 
 Route::post('/contact',[Sitecontroller::class,'contact'])->name('contact');
 
