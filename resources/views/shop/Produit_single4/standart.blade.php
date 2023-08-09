@@ -235,7 +235,7 @@ use App\Models\Panier;
                 
                 <select name="id" id="" class="form-control px-4 d-none" style="background-color: white; witdh:100px;">
                           
-                    <option value="2000"> aa</option>
+                    <option value="47"> aa</option>
                 
                    
 

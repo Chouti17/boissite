@@ -13,7 +13,6 @@ use App\Models\Panier;
                    ->where('valider', 0)
                    ->get();
 @endphp
-
 <!DOCTYPE html>
 <html lang="fi">
     <head>
@@ -24,7 +23,7 @@ use App\Models\Panier;
         <meta content="Free HTML Templates" name="description">
     
         <!-- Favicon -->
-        <link href="/img/favicon.ico" rel="icon">
+        <link href="/images/porte-conteneurs.png" rel="icon">
     
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -144,13 +143,13 @@ use App\Models\Panier;
         function changeImage1() {
         var image = document.getElementById('myImage');
        
-            image.src = '/images/f10.jpg';
+            image.src = '/images/c20.jpg';
         
         }
         function changeImage2() {
         var image = document.getElementById('myImage');
        
-            image.src = '/images/f20.jpg';
+            image.src = '/images/c40.jpg';
         
         }
         function changeImage3() {
@@ -214,18 +213,13 @@ use App\Models\Panier;
     <div class="container d-flex flex-row flex-wrap " style="margin-top:100px;">
         <div class="col-md-6"> 
             <div class="d-flex flex-wrap col-4 ">
-                <img  id="myImage" src="/images/f20.jpg" style="max-height:250px; ">
+                <img  id="myImage" src="/images/c20.jpg" style="max-height:250px; ">
             </div>
             <div class="m-4 d-flex flex-row flex-wrap">
                
-                <div class="border m-4  " style="width: 100px; height:100px;" onclick="changeImage1()"><img src="/images/f10.jpg" alt="" style="background-size: cover;height:80px;" class="p-3"></div>
-                <div class="border m-4  " style="width: 100px; height:100px;" onclick="changeImage2()"><img src="/images/f20.jpg" alt="" style="background-size: cover;height:80px;" class="p-3"></div>
-                <div class="border m-4  " style="width: 120px; height:100px;" onclick="changeImage3()"><img src="/images/f40.jpg" alt="" style="background-size: cover;height:80px;" class="p-3"></div>
-                <div class="border m-4  " style="width: 100px; height:100px;" onclick="changeImage4()"><img src="/images/frigo1.jpg" alt="" style="background-size: cover;height:80px;" class="p-3"></div>
-                <div class="border m-4  " style="width: 100px; height:100px;" onclick="changeImage5()"><img src="/images/frigo2.jpg" alt="" style="background-size: cover;height:80px;" class="p-3"></div>
-                <div class="border m-4  " style="width: 100px; height:100px;" onclick="changeImage6()"><img src="/images/frigo3.jpg" alt="" style="background-size: cover;height:80px;" class="p-3"></div>
-                <div class="border m-4  " style="width: 100px; height:100px;" onclick="changeImage7()"><img src="/images/frigo4.jpg" alt="" style="background-size: cover;height:80px;" class="p-3"></div>
-               
+                <div class="border m-4  " style="width: 100px; height:100px;" onclick="changeImage1()"><img src="/images/c20.jpg" alt="" style="background-size: cover;height:80px;" class="p-3"></div>
+                <div class="border m-4  " style="width: 100px; height:100px;" onclick="changeImage2()"><img src="/images/c40.jpg" alt="" style="background-size: cover;height:80px;" class="p-3"></div>
+                
                 
                
                
@@ -234,9 +228,10 @@ use App\Models\Panier;
 
         </div>
         <div class="col-md-6 d-flex flex-column ml-2">
-            <div class="mb-2 mx-4"><h3 style="color: #F49122; margin-bottom:20px;">JÄÄKAAPPIKONTTI</h3></div>
+            <div class="mb-2 mx-4"><h3 style="color: #F49122; margin-bottom:20px;">säiliö-kontti</h3></div>
             <div class="d-flex flex-row mb-2 flex-wrap mx-4">
-                <h5 class="text-success text-warning">4.0</h5>
+                <h5 class="text-success text-warning">5.0</h5>
+                <img src="/images/etoile.png" alt="" class="mx-2" style="height:20px;">
                 <img src="/images/etoile.png" alt="" class="mx-2" style="height:20px;">
                 <img src="/images/etoile.png" alt="" class="mx-2" style="height:20px;">
                 <img src="/images/etoile.png" alt="" class="mx-2" style="height:20px;">
@@ -244,17 +239,17 @@ use App\Models\Panier;
                 
 
                 <div class="mx-4"><h5 class="" style="color: #c5bebe">420 <span class=""style="color:black;">Tähtiarviointi</span></h5></div>
-                <div class="ml-4"><h5 class="" style="color: #c5bebe">804 <span class="text-primary">Myyty</span></h5></div>
+                <div class="ml-4"><h5 class="" style="color: #c5bebe">10044 <span class="text-primary">Myyty</span></h5></div>
                 
 
 
             </div>
-            <div class="mb-2 mx-4">  <h3 class="text-primary">5000€ - 14000€ HT</h3></div>
+            <div class="mb-2 mx-4">  <h3 class="text-primary">8000€ - 14000€ HT</h3></div>
 
             <div class="mx-4">
                 
                     <ul>
-                           <li><span class="text-primary">10 jalkaa: </span>5000€</li>
+                       
                           
                            <li><span class="text-primary">20 jalkaa: </span>8000€</li>
                      
@@ -265,10 +260,7 @@ use App\Models\Panier;
                  
             </div>
 
-            <p class="mx-4">
             
-
-            </p>
 
             <form action="{{route('Ajoutp')}}" method="post">
                 @csrf
@@ -279,18 +271,19 @@ use App\Models\Panier;
                 <div class="col-3 mx-4">
                     <p class="text-primary text-uppercase">Konttityyppi</p>
         
-                    <select name="id" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
+                    <select name="" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
                       
-                      <option value="42"> 10 jalkaa</option>
+                      <option value="2020"> 20 jalkaa</option>
+            
+              
                      
-                      <option value="43"> 20 jalkaa</option>
-                    
-                      <option value="44"> 40 jalkaa</option>
+                      <option value="4040"> 40 jalkaa</option>
                      
 
                  
                     </select>
                 </div>   
+             
                 
           <div class="col-4 mx-4 mt-2">
               <p class="text-primary text-uppercase">Määriä</p>
@@ -302,6 +295,7 @@ use App\Models\Panier;
          </div>
 
             </form>
+            
              
 
         </div>

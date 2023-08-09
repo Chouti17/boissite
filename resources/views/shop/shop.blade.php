@@ -149,7 +149,7 @@ use App\Models\Panier;
     		<div class="row">
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/20/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="images/conteneur101.jpg" alt="Colorlib Template">
+    					<a href="/shop/20/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="/images/conteneur101.jpg" alt="Colorlib Template">
     						<span class="status" style="background-color:#F49122">-30%</span>
     						<div class="overlay"></div>
     					</a>
@@ -164,16 +164,16 @@ use App\Models\Panier;
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/20/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center ">
 	    								
-										<img src="images/bar.png" alt="">
+										<img src="/images/bar.png" alt="">
 										
 	    							</a>
 	    							<a href="/ajout/3" class="buy-now d-flex justify-content-center align-items-center mx-1 AJ1">
 	    								
-										<img src="images/carte-de-shopping.png" alt="">
+										<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center AJ1 ">
 	    							
-										<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+										<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -182,7 +182,7 @@ use App\Models\Panier;
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/10/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="images/10dry.jpg" alt="Colorlib Template" style="min-height: 190px;">
+    					<a href="/shop/10/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="/images/10dry.jpg" alt="Colorlib Template" style="min-height: 190px;">
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3 text-center">
@@ -195,13 +195,13 @@ use App\Models\Panier;
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/10/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/1" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -210,7 +210,7 @@ use App\Models\Panier;
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/product" class="img-prod border-bottom"><img class="img-fluid" src="images/8piedss.jpg" alt="Colorlib Template"style="min-height: 190px;" >
+    					<a href="/shop/product" class="img-prod border-bottom"><img class="img-fluid" src="/images/8piedss.jpg" alt="Colorlib Template"style="min-height: 190px;" >
 	    					<div class="overlay"></div>
 	    				</a>
     					<div class="text py-3 pb-4 px-3 text-center">
@@ -223,13 +223,13 @@ use App\Models\Panier;
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/8/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/2" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -238,7 +238,7 @@ use App\Models\Panier;
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/15/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="images/153.jpg" alt="Colorlib Template" style="min-height: 190px;max-height:190px;">
+    					<a href="/shop/15/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="/images/153.jpg" alt="Colorlib Template" style="min-height: 190px;max-height:190px;">
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3 text-center">
@@ -251,13 +251,13 @@ use App\Models\Panier;
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/15/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/12" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -268,7 +268,7 @@ use App\Models\Panier;
 
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/20/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="images/20pieds.jpg" alt="Colorlib Template" style="min-height: 250px;max-height:250px;">
+    					<a href="/shop/20/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="/images/20pieds.jpg" alt="Colorlib Template" style="min-height: 250px;max-height:250px;">
     						<span class="status" style="background-color:#F49122">-30%</span>
     						<div class="overlay"></div>
     					</a>
@@ -282,13 +282,13 @@ use App\Models\Panier;
 	    					<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/20/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/3" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -297,7 +297,7 @@ use App\Models\Panier;
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/30/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="images/30pied.jpg" alt="Colorlib Template" style="max-height: 250px;min-height:250px;">
+    					<a href="/shop/30/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="/images/30pied.jpg" alt="Colorlib Template" style="max-height: 250px;min-height:250px;">
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3 text-center">
@@ -310,13 +310,13 @@ use App\Models\Panier;
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/30/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/13" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -325,7 +325,7 @@ use App\Models\Panier;
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/40/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="images/41pied.jpg" alt="Colorlib Template" style="height: 250px;">
+    					<a href="/shop/40/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="/images/41pied.jpg" alt="Colorlib Template" style="height: 250px;">
 	    					<div class="overlay"></div>
 	    				</a>
     					<div class="text py-3 pb-4 px-3 text-center">
@@ -338,13 +338,13 @@ use App\Models\Panier;
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/40/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/4" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -353,7 +353,7 @@ use App\Models\Panier;
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/40/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="images/42pieds.png" alt="Colorlib Template" style="height: 250px;">
+    					<a href="/shop/40/jalkaa" class="img-prod border-bottom"><img class="img-fluid" src="/images/42pieds.png" alt="Colorlib Template" style="height: 250px;">
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3 text-center">
@@ -366,13 +366,13 @@ use App\Models\Panier;
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/40/jalkaa" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/4" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -398,7 +398,7 @@ use App\Models\Panier;
     		<div class="row">
     			<div class="col-md-6 col-lg-6 ftco-animate">
     				<div class="product">
-    					<a href="/shop/avoin_yläsäiliö" class="img-prod border-bottom"><img class="img-fluid" src="images/opentopcotainer10.png" alt="Colorlib Template">
+    					<a href="/shop/avoin_yläsäiliö" class="img-prod border-bottom"><img class="img-fluid" src="/images/opentopcotainer10.png" alt="Colorlib Template">
     						<span class="status" style="background-color:#F49122">-30%</span>
     						<div class="overlay"></div>
     					</a>
@@ -412,13 +412,13 @@ use App\Models\Panier;
 	    					<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/avoin_yläsäiliö" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
-	    							<a href="/ajout/14" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    							<a href="/shop/avoin_yläsäiliö" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -428,7 +428,7 @@ use App\Models\Panier;
     			<div class="col-md-6 col-lg-6 ftco-animate">
     				<div class="product">
                     
-    					<a href="/shop/avoin_yläsäiliö" class="img-prod border-bottom"><img class="img-fluid" src="images/open.png" alt="Colorlib Template" style="min-height: 190px; max-height:520px;">
+    					<a href="/shop/avoin_yläsäiliö" class="img-prod border-bottom"><img class="img-fluid" src="/images/open.png" alt="Colorlib Template" style="min-height: 190px; max-height:520px;">
                             <span class="status" style="background-color:#F49122">-30%</span>
     						<div class="overlay"></div>
     					</a>
@@ -442,13 +442,13 @@ use App\Models\Panier;
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/avoin_yläsäiliö" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
-	    							<a href="/ajout/14" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    							<a href="/shop/avoin_yläsäiliö" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -514,7 +514,7 @@ use App\Models\Panier;
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img href="/shop/säiliökontti" class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="images/frigo1.jpg" style="object-fit: cover;">
+                        <img href="/shop/säiliökontti" class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="/images/frigo1.jpg" style="object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -536,7 +536,7 @@ use App\Models\Panier;
     		<div class="row">
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="" class="img-prod border-bottom"><img class="img-fluid" src="images/frigo1.jpg" alt="Colorlib Template" style="max-height: 300px;">
+    					<a href="" class="img-prod border-bottom"><img class="img-fluid" src="/images/frigo1.jpg" alt="Colorlib Template" style="max-height: 300px;">
     						<span class="status" style="background-color:#F49122">-10%</span>
     						<div class="overlay"></div>
     					</a>
@@ -550,13 +550,13 @@ use App\Models\Panier;
 	    					<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/säiliökontti" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/15" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -565,7 +565,7 @@ use App\Models\Panier;
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/säiliökontti" class="img-prod border-bottom"><img class="img-fluid" src="images/frigo2.jpg" alt="Colorlib Template" >
+    					<a href="/shop/säiliökontti" class="img-prod border-bottom"><img class="img-fluid" src="/images/frigo2.jpg" alt="Colorlib Template" >
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3 text-center">
@@ -578,13 +578,13 @@ use App\Models\Panier;
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/säiliökontti" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/16" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -593,7 +593,7 @@ use App\Models\Panier;
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/säiliökontti" class="img-prod border-bottom"><img class="img-fluid" src="images/frigo3.jpg" alt="Colorlib Template"  >
+    					<a href="/shop/säiliökontti" class="img-prod border-bottom"><img class="img-fluid" src="/images/frigo3.jpg" alt="Colorlib Template"  >
 	    					<div class="overlay"></div>
 	    				</a>
     					<div class="text py-3 pb-4 px-3 text-center">
@@ -606,13 +606,13 @@ use App\Models\Panier;
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/säiliökontti" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/17" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<img src="images/carte-de-shopping.png" alt="">
+	    								<img src="/images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -621,7 +621,7 @@ use App\Models\Panier;
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="/shop/säiliökontti" class="img-prod border-bottom"><img class="img-fluid" src="images/frigo4.jpg" alt="Colorlib Template" >
+    					<a href="/shop/säiliökontti" class="img-prod border-bottom"><img class="img-fluid" src="/images/frigo4.jpg" alt="Colorlib Template" >
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3 text-center">
@@ -634,13 +634,13 @@ use App\Models\Panier;
     						<div class="bottom-area d-flex px-3">
 	    						<div class="m-auto d-flex">
 	    							<a href="/shop/säiliökontti" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<img src="images/bar.png" alt="">
+	    								<img src="/images/bar.png" alt="">
 	    							</a>
 	    							<a href="/ajout/18" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<img src="images/carte-de-shopping.png" alt="">
 	    							</a>
 	    							<a href="" class="heart d-flex justify-content-center align-items-center ">
-	    							<img src="images/silhouette-en-forme-de-coeur.png" alt="">
+	    							<img src="/images/silhouette-en-forme-de-coeur.png" alt="">
 	    							</a>
     							</div>
     						</div>
@@ -691,7 +691,7 @@ use App\Models\Panier;
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img href="/shop/säiliön_kontti"class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="images/citerne.jpg" style="object-fit: cover;">
+                        <img href="/shop/säiliön_kontti"class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="/images/citerne.jpg" style="object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -732,7 +732,7 @@ use App\Models\Panier;
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img href="/shop/säiliö_flat_rack"class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="images/flat.jpg" style="object-fit: cover;">
+                        <img href="/shop/säiliö_flat_rack"class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="/images/flat.jpg" style="object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -750,7 +750,7 @@ use App\Models\Panier;
 	  <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
 		<div class="media block-6 services mb-md-0 mb-4">
 		  <div class="icon  active d-flex justify-content-center align-items-center mb-2">
-			<img src="images/cargo.png" alt="" style="background: #F49122; height:100px;" class="rounded-circle p-4">
+			<img src="/images/cargo.png" alt="" style="background: #F49122; height:100px;" class="rounded-circle p-4">
 		  </div>
 		  <div class="media-body">
 			<h3 class="heading">Nopea toimitus</h3>
@@ -762,7 +762,7 @@ use App\Models\Panier;
 	  <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
 		<div class="media block-6 services mb-md-0 mb-4">
 			<div class="icon  active d-flex justify-content-center align-items-center mb-2">
-				<img src="images/grue-a-conteneurs.png" alt="" style="background: #F49122; height:100px;" class="rounded-circle p-4">
+				<img src="/images/grue-a-conteneurs.png" alt="" style="background: #F49122; height:100px;" class="rounded-circle p-4">
 			  </div>
 		  <div class="media-body">
 			<h3 class="heading">Uusi tuote</h3>
@@ -784,7 +784,7 @@ use App\Models\Panier;
 	  <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
 		<div class="media block-6 services mb-md-0 mb-4">
 			<div class="icon  active d-flex justify-content-center align-items-center mb-2">
-				<img src="images/livraison-24h-24.png" alt="" style="background: #F49122; height:100px;" class="rounded-circle p-4">
+				<img src="/images/livraison-24h-24.png" alt="" style="background: #F49122; height:100px;" class="rounded-circle p-4">
 			  </div>
 		  <div class="media-body">
 			<h3 class="heading">Tuki</h3>

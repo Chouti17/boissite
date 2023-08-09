@@ -279,13 +279,11 @@ use App\Models\Panier;
                 <div class="col-3 mx-4">
                     <p class="text-primary text-uppercase">Konttityyppi</p>
         
-                    <select name="id" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
+                    <select name="" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
                       
-                      <option value="42"> 10 jalkaa</option>
+                      <option value="1011"> 10 jalkaa</option>
                      
-                      <option value="43"> 20 jalkaa</option>
                     
-                      <option value="44"> 40 jalkaa</option>
                      
 
                  

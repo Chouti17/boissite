@@ -292,11 +292,11 @@ use App\Models\Panier;
         
                     <select name="" id="" class="form-control px-4" style="background-color: white; witdh:100px;">
                       
-                      <option value="101"> 10 jalkaa</option>
-                      <option value="151"> 15 jalkaa</option>
-                      <option value="201 jalkaa"> 20 jalkaa</option>
-                      <option value="301 jalkaa"> 30 jalkaa</option>
-                      <option value="401 jalkaa"> 40 jalkaa</option>
+                      <option value="37"> 10 jalkaa</option>
+                      <option value="38"> 15 jalkaa</option>
+                      <option value="39"> 20 jalkaa</option>
+                      <option value="40"> 30 jalkaa</option>
+                      <option value="41"> 40 jalkaa</option>
                      
 
                  
