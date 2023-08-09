@@ -29,7 +29,7 @@ Route::get('/shop/20/jalkaa',[Sitecontroller::class,'shop_20']);
 Route::get('/shop/15/jalkaa',[Sitecontroller::class,'shop_15']);
 Route::get('/shop/30/jalkaa',[Sitecontroller::class,'shop_30']);
 Route::get('/shop/40/jalkaa',[Sitecontroller::class,'shop_40']);
-Route::get('/shop/avoins',[Sitecontroller::class,'shop_to']);
+Route::get('/shop/avoin_yläsäiliö',[Sitecontroller::class,'shop_to']);
 Route::get('/shop/säiliökontti',[Sitecontroller::class,'shop_frigorifique']);
 Route::get('/shop/säiliön_kontti',[Sitecontroller::class,'shop_cirtene']);
 Route::get('/shop/säiliö_flat_rack',[Sitecontroller::class,'shop_fatrack']);
