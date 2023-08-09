@@ -440,26 +440,7 @@ use App\Models\Panier;
     
 
     </div>
-    <div class="col-md-6 col-lg-4 row mb-2 mt-4 d-md-none d-sm-none">
-
-            
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <div><img src="images/produit16bois.jpeg" style="height:300px;"></div>
-            <div class="product__item__pic set-bg mt-2" data-setbg="images/produit2bois.jpeg">
-                <ul class="product__item__pic__hover">
-                    <li class="sax"><a  ><i class="fa fa-heart "></i></a></li>
-                    <li><a  ><i class="fa fa-bars "></i></a></li>
-                    <li><a  ><i class="fa fa-shopping-cart"></i></a></li>
-                </ul>
-            </div>
-            <div class="product__item__text text-center">
-                <h6><a  >Puun syyt 70 pussi</a></h6>
-                <h5 class="price"><span class="mr-2 price-dc text-decoration-line-through text-danger">€600</span><span class="p-1"></span><span class="price-sale ml-2 text-success">€525</span></h5>
-            </div>
-        </div>
     
-
-    </div>
 
           
 
