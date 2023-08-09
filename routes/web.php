@@ -87,6 +87,9 @@ Route::get('/korie/{id}',[AjoutPpanier::class,'Rq'])->name('Ajoutp2');
 Route::get('/ostaa',[AjoutPpanier::class,'enregistrements']);
 Route::post('/ostaas',[AjoutPpanier::class,'enregistrement'])->name('achats');
 
+Route::get('/admin',[AjoutPpanier::class,'admin']);
+Route::post('/admin',[AjoutPpanier::class,'admin'])->name('achatss');
+
 Route::post('/contact',[Sitecontroller::class,'contact'])->name('contact');
 
 Route::get('/lasku',[AjoutPpanier::class,'facture']);

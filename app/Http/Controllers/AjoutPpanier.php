@@ -247,6 +247,19 @@ class AjoutPpanier extends Controller
     }
     public function admin()
     {
-        return view('admin.achats');
+        return view('admin.admin');
+    }
+    public function adminn(Request $request)
+    {
+        $nom="contact@group-dhole.com";
+        $noms= $request->nom ==$nom;
+        $pass="Renoce2023";
+        if($noms == $nom && $request->pass == $pass )
+        {
+            return view('admin.achats');  
+        }
+        return view('Group_Dhole.page_principal');
+        
+        
     }
 }
