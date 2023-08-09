@@ -156,6 +156,10 @@ class Sitecontroller extends Controller
     {
         return view('Group_Dhole.devis');
     }
+    public function lokit()
+    {
+        return view('shop1.produit16');
+    }
 
     public function contact(Request $request)
     {

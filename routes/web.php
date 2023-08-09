@@ -49,6 +49,8 @@ Route::get('/shop/40_pussias',[Sitecontroller::class,'pussiass']);
 Route::get('/shop/5_pussia_sytytystä',[Sitecontroller::class,'pussiasss']);
 
 Route::get('/shop/lave',[Sitecontroller::class,'pussiassss']);
+
+Route::get('/shop/lokit',[Sitecontroller::class,'lokit']);
 Route::get('/shop/nestro_pyökki',[Sitecontroller::class,'pussiasssss']);
 Route::get('/shop/kori',[Sitecontroller::class,'panier']);
 

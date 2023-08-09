@@ -271,7 +271,7 @@ use App\Models\Panier;
         </div>
     </div>
     <div class="container-fluid mx-4">
-        <p>
+        <p style="font-size: 14px;">
             Polttopuut ilman rajoituksia
 Löydä kaikki ilo kauniista puutakasta ilman tähän lämmitysmuotoon liittyviä perinteisiä rajoituksia (halkaistava ja varastoitava puu, tärkeä tuhka, lasin likaantuminen, savuhormin räjähdys, lika jne.).
 
