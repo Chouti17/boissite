@@ -55,7 +55,7 @@ $clients = Client::all();
 
             
             @foreach ($clients as $client)
-            <div class="shadow m-4 col-4  ">
+            <div class="shadow m-4 col-3  ">
           
             @php
   
