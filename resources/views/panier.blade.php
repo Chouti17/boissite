@@ -131,7 +131,9 @@ use App\Models\Panier;
                   
                 </div>
               </div>
-      
+              
+              @if ($produits->count()>0)
+
               @foreach ($produits as $panier)
 
               <div class="card rounded-3 mb-4">
@@ -176,16 +178,27 @@ use App\Models\Panier;
                   </div>
                 </div>
               </div>
+              
                   
               @endforeach
-      
+
               <div class="card mb-4">
                
-              <div class="card">
-                <div class="card-body">
-                  <a type="button" class="btn btn-success btn-block btn-lg" href="/ostaa">Jatka maksamiseen</a>
+                <div class="card">
+                  <div class="card-body">
+                    <a type="button" class="btn btn-success btn-block btn-lg" href="/ostaa">Jatka maksamiseen</a>
+                  </div>
                 </div>
+        
               </div>
+
+              @else
+
+              <h3 class="text-primary">Ei tuotetta lisätä ostoskoriin</p>
+                  
+              @endif
+      
+             
       
             </div>
           </div>
