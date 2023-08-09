@@ -49,7 +49,7 @@ $clients = Client::all();
 
     <section>
 
-        <h1>Liste des demande </h1>
+        <h1>Liste des demandes </h1>
         <div class="container-fluid col-12 d-flex flex-wrap">
 
 

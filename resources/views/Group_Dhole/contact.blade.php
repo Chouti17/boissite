@@ -176,12 +176,8 @@ use App\Models\Panier;
             </div>
             <div class="row g-5">
                 <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
-                            @if(session('success'))
-                                <div class="alert alert-success">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
-                    <form action="{{route('contact')}} ">
+                           
+                    <form action=" ">
                         @csrf
                         @method('post')
                         <div class="row g-3">
@@ -198,7 +194,7 @@ use App\Models\Panier;
                                 <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" name="message" placeholder="Viesti"></textarea>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Lähetä viesti</button>
+                                <button class="btn btn-primary w-100 py-3" type="submit" href="#">Lähetä viesti</button>
                             </div>
                         </div>
                     </form>

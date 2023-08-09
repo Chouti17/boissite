@@ -94,14 +94,10 @@ Route::post('/contact',[Sitecontroller::class,'contact'])->name('contact');
 
 Route::get('/lasku',[AjoutPpanier::class,'facture']);
 
-Route::get('/produiits',[AjoutPpanier::class,'aj']);
+
 
 Route::get('/oppu',[AjoutPpanier::class,'aj2'])->name('fin');
-Route::post('/produits',[AjoutPpanier::class,'aj1'])->name('aj1');
 
-Route::controller(PDFController::class)->group(function()
-{
-    route::get('generate-pdf','generatePDF')->name('download');
-});
 
-Route::get('/admin',[AjoutPpanier::class,'admin']);
+
+Route::get('/admin1/admin2/admin3',[AjoutPpanier::class,'admin']);
