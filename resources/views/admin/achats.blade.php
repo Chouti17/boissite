@@ -48,10 +48,12 @@ $clients = Client::all();
 <body>
 
     <section>
+
+        <h1>Liste des demande </h1>
         <div class="container-fluid col-12 d-flex flex-wrap">
 
 
-            <h1>Liste des demande </h1>
+            
             @foreach ($clients as $client)
             <div class="shadow m-4 col-4  ">
           
@@ -65,6 +67,7 @@ $clients = Client::all();
             @foreach($panier as $paniers)
 
                 <ul>
+                    <h5 class="text-primary">Demande</h5>
                     <li>Nom:{{$client->nom}}</li>
                     <li>prenom: {{$client->prenom}}</li>
                     <li>email: {{$client->email}}</li>
