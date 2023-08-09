@@ -66,7 +66,7 @@ $clients = Client::all();
 
             @foreach($panier as $paniers)
 
-                <ul>
+                <ul style="list-style: none">
                     <h5 class="text-primary">Demande</h5>
                     <li>Nom:{{$client->nom}}</li>
                     <li>Prenom: {{$client->prenom}}</li>
