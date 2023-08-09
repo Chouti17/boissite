@@ -165,10 +165,10 @@ use App\Models\Panier;
                     </a>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 d-none d-sm-flex d-md-flex">
-                      <h5 class="mb-0">{{$panier->produit->prix}}£</h5>
+                      <h5 class="mb-0">{{$panier->produit->prix}}€</h5>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 my-3 d-sm-none d-md-none ">
-                      <h5 class="mb-0">{{$panier->produit->prix}}£</h5>
+                      <h5 class="mb-0">{{$panier->produit->prix}}€</h5>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                       <a href="/kori/{{$panier->id}}" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>

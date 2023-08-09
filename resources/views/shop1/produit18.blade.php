@@ -248,12 +248,20 @@ use App\Models\Panier;
 
                
 
-            <form action="" method="post">
+            <form action="{{route('Ajoutp')}}" method="post">
                 @csrf
                 @method('post')
 
 
                 
+                <select name="id" id="" class="form-control px-4 d-none" style="background-color: white; witdh:100px;">
+                          
+                    <option value="9"> </option>
+                
+                   
+
+               
+                  </select>
                  
                 
 
