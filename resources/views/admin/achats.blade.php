@@ -69,16 +69,17 @@ $clients = Client::all();
                 <ul>
                     <h5 class="text-primary">Demande</h5>
                     <li>Nom:{{$client->nom}}</li>
-                    <li>prenom: {{$client->prenom}}</li>
-                    <li>email: {{$client->email}}</li>
-                    <li>address: {{$client->addresse}}</li>
+                    <li>Prenom: {{$client->prenom}}</li>
+                    <li>Email: {{$client->email}}</li>
+                    <li>Address: {{$client->addresse}}</li>
+                    <li>Date: {{$client->created_at}}</li>
                 
                 </ul>
                 
                 <ul>
-                    <li>produit: {{$paniers->produit->nom}}</li>
+                    <li> <span class="success">roduit:</span> {{$paniers->produit->nom}}</li>
                 
-                    <li>Quantite:{{$paniers->quantity}}</li>
+                    <li> <span class="success">Quantite</span>:{{$paniers->quantity}}</li>
 
                 </ul>
         
