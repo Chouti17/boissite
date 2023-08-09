@@ -197,7 +197,7 @@ use App\Models\Panier;
         </div>
      </div>
      <div class="container-fluid  justify-content-center align-items-center">
-        <h5 style="font-size:16px;">
+        <h5 style="font-size:13px;">
             Olemme luotettavia, ja kehotamme sinua tekemään tilauksesi tai kertomaan meille erilaisista ehdotuksistasi.
 
 Meille luottamus on kaiken toimintamme ytimessä. Sitoutumisemme laadukkaaseen palveluun, luotettavaan toimitukseen ja poikkeukselliseen asiakastukeen on horjumaton. Teemme parhaamme tarjotaksemme sinulle saumattoman ostokokemuksen ja vastataksemme tarpeisiisi parhaalla mahdollisella tavalla.
