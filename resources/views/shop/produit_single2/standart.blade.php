@@ -270,7 +270,7 @@ use App\Models\Panier;
 
             </p>
 
-            <form action="{{route('Ajoutp')}}" method="post">
+            <form action="{{route('ajoutp')}}" method="post">
                 @csrf
                 @method('post')
 

@@ -29,7 +29,7 @@ Route::get('/shop/20/jalkaa',[Sitecontroller::class,'shop_20']);
 Route::get('/shop/15/jalkaa',[Sitecontroller::class,'shop_15']);
 Route::get('/shop/30/jalkaa',[Sitecontroller::class,'shop_30']);
 Route::get('/shop/40/jalkaa',[Sitecontroller::class,'shop_40']);
-Route::get('/shop/avoin_yläsäiliö',[Sitecontroller::class,'shop_to']);
+Route::get('/shop/avoins',[Sitecontroller::class,'shop_to']);
 Route::get('/shop/säiliökontti',[Sitecontroller::class,'shop_frigorifique']);
 Route::get('/shop/säiliön_kontti',[Sitecontroller::class,'shop_cirtene']);
 Route::get('/shop/säiliö_flat_rack',[Sitecontroller::class,'shop_fatrack']);
@@ -72,7 +72,12 @@ Route::get('/cook',[Cookie::class,'del']);
 
 Route::get('/ajout/{id}',[AjoutPpanier::class,'Ajout']);
 
+
 Route::post('/kori',[AjoutPpanier::class,'Ajoutproduit'])->name('Ajoutp');
+
+
+
+
 Route::get('/kori/{id}',[AjoutPpanier::class,'delete'])->name('Ajoutp1');
 Route::get('/koris/{id}',[AjoutPpanier::class,'Ajoutq'])->name('Ajoutp2');
 Route::get('/korie/{id}',[AjoutPpanier::class,'Rq'])->name('Ajoutp2');
