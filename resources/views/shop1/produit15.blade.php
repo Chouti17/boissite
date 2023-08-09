@@ -14,7 +14,7 @@ use App\Models\Panier;
                    ->get();
 @endphp
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
     <head>
         <meta charset="utf-8">
         <title>GROUP DHOLE</title>
