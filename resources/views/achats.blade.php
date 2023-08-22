@@ -43,6 +43,9 @@
 <body>
     <div class="app">
         <div class="container-fluid">
+            <a href="#searchModal" style="position: relative;" class=" ms-3"  data-bs-toggle="modal" data-bs-target="#searchModal">
+                <img src="/images/traduction.png"  style="width: 30px;" href="/shop/kori">
+            </a>
             <div class="d-flex full-height p-v-20 flex-column ">
                
                 <div class="container mt-5">
