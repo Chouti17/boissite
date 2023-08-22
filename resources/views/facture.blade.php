@@ -23,7 +23,7 @@ use App\Models\Client;
        
 @endphp
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
     <head>
         <meta charset="utf-8">
         <title>GROUP DHOLE</title>
@@ -52,6 +52,13 @@ use App\Models\Client;
     
         <!-- Template Stylesheet -->
         <link href="/css/style.css" rel="stylesheet">
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+		  new google.translate.TranslateElement({pageLanguage: 'fi'}, 'google_translate_element');
+		}
+	  </script>
+	  <script src="//translate.google.com/translate_a/elementa0d8.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+	
             
     
     </head>

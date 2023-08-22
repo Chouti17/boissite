@@ -36,10 +36,14 @@ use App\Models\Panier;
             <span class="m-0 d-md-none d-sm-none"><img class="" style="width: 100px;" src="/images/logo1.png" alt="" ></span>
            
         </a>
+        <a href="#searchModal" style="position: relative;" class="d-md-none d-sm-none"  data-bs-toggle="modal" data-bs-target="#searchModal">
+            <img src="/images/traduction.png"  style="width: 30px;" href="/shop/kori">
+        </a>
         <a href="/shop/kori" style="position: relative;" class="d-md-none d-sm-none">
             <div class="rounded-circle d-flex text-center justify-content-center align-items-center" style="background-color:blue;color:white;width:20px;height:20px;position: absolute;top:-10px;left:32px;">{{$produits->count()}}</div>
             <img src="/images/panier.png" alt="" href="/shop/kori">
         </a>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>
@@ -55,6 +59,9 @@ use App\Models\Panier;
                 <a href="/ottaa_yhteyttä" class="nav-item nav-link" style="font-size: 16px;">yhteyttä </a>
                
             </div>
+            <a href="#searchModal" style="position: relative;" class=" ms-3"  data-bs-toggle="modal" data-bs-target="#searchModal">
+                <img src="/images/traduction.png"  style="width: 30px;" href="/shop/kori">
+            </a>
         
             <butaton type="button" class="btn text-primary ms-3" >
 
@@ -70,35 +77,6 @@ use App\Models\Panier;
 
    
 
-    <div class="modal fade" id="searchModal" tabindex="-1">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex align-items-center justify-content-center">
-                    <div class="input-group" style="max-width: 600px;">
-                        <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
-                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="modal fade" id="p" tabindex="-1">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex align-items-center justify-content-center">
-                    <div class="input-group" style="max-width: 600px;">
-                        <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
-                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('Group_Dhole.nav')
+ 
 </div>

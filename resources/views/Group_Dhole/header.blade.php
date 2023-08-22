@@ -19,3 +19,4 @@
         </div>
     </div>
 </div>
+@include('Group_Dhole.nav')

@@ -43,6 +43,14 @@ use App\Models\Panier;
 
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'fi'}, 'google_translate_element');
+      }
+    </script>
+    <script src="//translate.google.com/translate_a/elementa0d8.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+    
 </head>
 
 <body>
